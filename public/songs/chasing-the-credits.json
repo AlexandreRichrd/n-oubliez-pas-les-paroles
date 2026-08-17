@@ -1,0 +1,20 @@
+{
+  "id": "chasing-the-credits",
+  "titre": "Chasing The Credits",
+  "artiste": "Artiste Imaginaire",
+  "annee": 2004,
+  "theme": "bandes-originales",
+  "audio": "/audio/chasing-the-credits.mp3",
+  "lignes": [
+    { "t": 0, "texte": "Les lumieres s'eteignent dans la salle" },
+    { "t": 4, "texte": "L'ecran s'allume, le rideau tombe" },
+    { "t": 8, "texte": "On respire un grand film qui commence", "trou": true },
+    { "t": 12, "texte": "Le heros avance sans un mot" },
+    { "t": 16, "texte": "La musique enfle, le doute s'efface" },
+    { "t": 20, "texte": "On croit encore aux happy ends", "trou": true },
+    { "t": 24, "texte": "Les images filent comme un reve" },
+    { "t": 28, "texte": "Le generique attend patiemment" },
+    { "t": 32, "texte": "On reste assis jusqu'au bout", "trou": true },
+    { "t": 36, "texte": "Chasing the credits, encore une fois" }
+  ]
+}

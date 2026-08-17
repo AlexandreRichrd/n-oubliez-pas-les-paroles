@@ -1,0 +1,20 @@
+{
+  "id": "neon-highway",
+  "titre": "Neon Highway",
+  "artiste": "Artiste Imaginaire",
+  "annee": 1986,
+  "theme": "tubes-80s",
+  "audio": "/audio/neon-highway.mp3",
+  "lignes": [
+    { "t": 0, "texte": "Les phares dessinent la route en neon" },
+    { "t": 4, "texte": "On roule sans regarder derriere" },
+    { "t": 8, "texte": "Le vent nous pousse vers l'horizon", "trou": true },
+    { "t": 12, "texte": "La radio crie un vieux refrain" },
+    { "t": 16, "texte": "Les warnings clignotent comme des etoiles" },
+    { "t": 20, "texte": "On invente encore mille chemins", "trou": true },
+    { "t": 24, "texte": "La ville s'efface dans le retro" },
+    { "t": 28, "texte": "Le compteur grimpe, le coeur s'emballe" },
+    { "t": 32, "texte": "On garde le pied sur l'accelerateur", "trou": true },
+    { "t": 36, "texte": "Neon highway, jusqu'au bout de la nuit" }
+  ]
+}

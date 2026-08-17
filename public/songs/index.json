@@ -1,0 +1,22 @@
+{
+  "themes": [
+    { "id": "bandes-originales", "nom": "Bandes originales de films" },
+    { "id": "tubes-80s", "nom": "Tubes 80s" }
+  ],
+  "chansons": [
+    {
+      "id": "chasing-the-credits",
+      "titre": "Chasing The Credits",
+      "artiste": "Artiste Imaginaire",
+      "annee": 2004,
+      "theme": "bandes-originales"
+    },
+    {
+      "id": "neon-highway",
+      "titre": "Neon Highway",
+      "artiste": "Artiste Imaginaire",
+      "annee": 1986,
+      "theme": "tubes-80s"
+    }
+  ]
+}
