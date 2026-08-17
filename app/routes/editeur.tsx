@@ -37,6 +37,7 @@ export default function Editeur() {
   const [indexTap, setIndexTap] = useState(0);
   const [decalageMs, setDecalageMs] = useState(0);
   const [vitesseLecture, setVitesseLecture] = useState(1);
+  const [modeApercu, setModeApercu] = useState(false);
 
   const audioUrlRef = useRef<string | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -73,6 +74,23 @@ export default function Editeur() {
     }
     return derniereCle;
   }, [lignes, tempsActuel]);
+
+  const lignesAffichees = useMemo(
+    () => lignes.filter((l) => l.t !== null && l.t <= tempsActuel),
+    [lignes, tempsActuel],
+  );
+
+  useEffect(() => {
+    if (!modeApercu) return;
+    function surKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        sortirApercu();
+      }
+    }
+    window.addEventListener("keydown", surKeyDown);
+    return () => window.removeEventListener("keydown", surKeyDown);
+  }, [modeApercu]);
 
   useEffect(() => {
     if (!modeTap) return;
@@ -160,6 +178,20 @@ export default function Editeur() {
     audioRef.current?.pause();
   }
 
+  function entrerApercu() {
+    const audio = audioRef.current;
+    if (!audio || lignes.length === 0) return;
+    setModeTap(false);
+    audio.currentTime = 0;
+    void audio.play();
+    setModeApercu(true);
+  }
+
+  function sortirApercu() {
+    setModeApercu(false);
+    audioRef.current?.pause();
+  }
+
   function assignerTapCourant() {
     const audio = audioRef.current;
     if (!audio) return;
@@ -235,6 +267,14 @@ export default function Editeur() {
       copie.splice(position === "avant" ? i : i + 1, 0, nouvelle);
       return copie;
     });
+  }
+
+  function blanchirTexte(texte: string): string {
+    return texte
+      .split(/\s+/)
+      .filter((mot) => mot.length > 0)
+      .map((mot) => "_".repeat(mot.length))
+      .join(" ");
   }
 
   function surKeyDownTimestamp(e: React.KeyboardEvent, cle: string) {
@@ -533,6 +573,15 @@ export default function Editeur() {
               {modeTap ? "Quitter le mode tap (Échap)" : "Entrer en mode tap"}
             </button>
 
+            <button
+              type="button"
+              className={boutonClass}
+              disabled={lignes.length === 0}
+              onClick={entrerApercu}
+            >
+              Lancer l'aperçu
+            </button>
+
             <div className="flex flex-col gap-2 border-t border-white/10 pt-4">
               <span className={labelClass}>Vitesse de lecture</span>
               <div className="flex gap-1">
@@ -594,6 +643,43 @@ export default function Editeur() {
           </p>
         )}
       </aside>
+
+      {modeApercu && (
+        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-4 bg-[#050914] p-12">
+          <button
+            type="button"
+            className={`${boutonClass} absolute top-6 right-6`}
+            onClick={sortirApercu}
+          >
+            Fermer l'aperçu (Échap)
+          </button>
+
+          <div className="flex w-full max-w-3xl flex-col items-center gap-3 text-center">
+            {lignesAffichees.slice(-4, -1).map((ligne) => (
+              <p key={ligne.cle} className="text-lg text-white/35">
+                {ligne.texte}
+              </p>
+            ))}
+            {(() => {
+              const courante = lignesAffichees[lignesAffichees.length - 1];
+              if (!courante) {
+                return (
+                  <p className="text-sm text-white/30">
+                    En attente de la première ligne…
+                  </p>
+                );
+              }
+              return (
+                <p className="text-4xl font-bold text-white">
+                  {courante.trou
+                    ? blanchirTexte(courante.texte)
+                    : courante.texte}
+                </p>
+              );
+            })()}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
