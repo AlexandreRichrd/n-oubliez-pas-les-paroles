@@ -35,6 +35,8 @@ export default function Editeur() {
   );
   const [modeTap, setModeTap] = useState(false);
   const [indexTap, setIndexTap] = useState(0);
+  const [decalageMs, setDecalageMs] = useState(0);
+  const [vitesseLecture, setVitesseLecture] = useState(1);
 
   const audioUrlRef = useRef<string | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -48,6 +50,10 @@ export default function Editeur() {
       if (audioUrlRef.current) URL.revokeObjectURL(audioUrlRef.current);
     };
   }, []);
+
+  useEffect(() => {
+    if (audioRef.current) audioRef.current.playbackRate = vitesseLecture;
+  }, [vitesseLecture, audioUrl]);
 
   useEffect(() => {
     let frame: number;
@@ -526,6 +532,61 @@ export default function Editeur() {
             >
               {modeTap ? "Quitter le mode tap (Échap)" : "Entrer en mode tap"}
             </button>
+
+            <div className="flex flex-col gap-2 border-t border-white/10 pt-4">
+              <span className={labelClass}>Vitesse de lecture</span>
+              <div className="flex gap-1">
+                {[0.75, 1].map((vitesse) => (
+                  <button
+                    key={vitesse}
+                    type="button"
+                    className={
+                      vitesseLecture === vitesse
+                        ? `${boutonMiniClass} border-sky-400 bg-sky-400/20`
+                        : boutonMiniClass
+                    }
+                    onClick={() => setVitesseLecture(vitesse)}
+                  >
+                    {vitesse}×
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-2 border-t border-white/10 pt-4">
+              <span className={labelClass}>
+                Décalage global (appliqué à l'export)
+              </span>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  className={boutonMiniClass}
+                  onClick={() => setDecalageMs((v) => v - 10)}
+                >
+                  −10ms
+                </button>
+                <input
+                  type="number"
+                  step={10}
+                  className={`${champClass} w-24 text-center`}
+                  value={decalageMs}
+                  onChange={(e) =>
+                    setDecalageMs(Number(e.target.value) || 0)
+                  }
+                />
+                <button
+                  type="button"
+                  className={boutonMiniClass}
+                  onClick={() => setDecalageMs((v) => v + 10)}
+                >
+                  +10ms
+                </button>
+              </div>
+              <p className="text-xs text-sky-300">
+                Décalage actuel : {decalageMs > 0 ? "+" : ""}
+                {decalageMs} ms
+              </p>
+            </div>
           </>
         ) : (
           <p className="text-sm text-white/40">
