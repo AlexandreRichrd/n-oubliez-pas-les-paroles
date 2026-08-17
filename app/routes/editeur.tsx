@@ -30,6 +30,11 @@ export default function Editeur() {
   const [texteParoles, setTexteParoles] = useState("");
   const [lignes, setLignes] = useState<LigneEdition[]>([]);
   const [tempsActuel, setTempsActuel] = useState(0);
+  const [indexSelectionne, setIndexSelectionne] = useState<number | null>(
+    null,
+  );
+  const [modeTap, setModeTap] = useState(false);
+  const [indexTap, setIndexTap] = useState(0);
 
   const audioUrlRef = useRef<string | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -62,6 +67,30 @@ export default function Editeur() {
     }
     return derniereCle;
   }, [lignes, tempsActuel]);
+
+  useEffect(() => {
+    if (!modeTap) return;
+    function surKeyDown(e: KeyboardEvent) {
+      const cible = document.activeElement;
+      const dansChampTexte =
+        cible instanceof HTMLInputElement ||
+        cible instanceof HTMLTextAreaElement;
+      if (dansChampTexte) return;
+
+      if (e.key === " ") {
+        e.preventDefault();
+        assignerTapCourant();
+      } else if (e.key === "Backspace") {
+        e.preventDefault();
+        reculerTap();
+      } else if (e.key === "Escape") {
+        e.preventDefault();
+        sortirModeTap();
+      }
+    }
+    window.addEventListener("keydown", surKeyDown);
+    return () => window.removeEventListener("keydown", surKeyDown);
+  }, [modeTap, indexTap, lignes.length]);
 
   function surChangementFichierAudio(e: React.ChangeEvent<HTMLInputElement>) {
     const fichier = e.target.files?.[0];
@@ -101,6 +130,52 @@ export default function Editeur() {
     if (!audio) return;
     audio.currentTime = Math.max(0, t);
     void audio.play();
+  }
+
+  function selectionnerLigne(index: number) {
+    setIndexSelectionne(index);
+    if (modeTap) setIndexTap(index);
+    const t = lignes[index]?.t;
+    if (t !== null && t !== undefined) seekEtLire(t - 2);
+  }
+
+  function entrerModeTap() {
+    const audio = audioRef.current;
+    if (!audio || lignes.length === 0) return;
+    const depart = indexSelectionne ?? 0;
+    audio.currentTime = lignes[depart]?.t ?? 0;
+    void audio.play();
+    setIndexTap(depart);
+    setModeTap(true);
+  }
+
+  function sortirModeTap() {
+    setModeTap(false);
+    audioRef.current?.pause();
+  }
+
+  function assignerTapCourant() {
+    const audio = audioRef.current;
+    if (!audio) return;
+    const t = arrondirTemps(audio.currentTime);
+    setLignes((prev) => {
+      if (indexTap >= prev.length) return prev;
+      const copie = [...prev];
+      copie[indexTap] = { ...copie[indexTap], t };
+      return copie;
+    });
+    setIndexTap((i) => Math.min(i + 1, lignes.length - 1));
+  }
+
+  function reculerTap() {
+    const nouvelIndex = Math.max(0, indexTap - 1);
+    setLignes((prev) => {
+      if (nouvelIndex >= prev.length) return prev;
+      const copie = [...prev];
+      copie[nouvelIndex] = { ...copie[nouvelIndex], t: null };
+      return copie;
+    });
+    setIndexTap(nouvelIndex);
   }
 
   function modifierTexte(cle: string, texte: string) {
@@ -255,6 +330,33 @@ export default function Editeur() {
         <h1 className="mb-2 text-sm font-semibold tracking-wide text-white/70 uppercase">
           Lignes
         </h1>
+
+        {modeTap && (
+          <div className="mb-3 flex flex-col gap-1 rounded border border-sky-400/40 bg-sky-400/10 p-3">
+            <p className="text-xs font-medium tracking-wide text-sky-300 uppercase">
+              Mode tap — Espace : poser · Retour arrière : annuler · Échap :
+              quitter
+            </p>
+            {lignes.slice(indexTap, indexTap + 3).map((ligne, i) => (
+              <p
+                key={ligne.cle}
+                className={
+                  i === 0
+                    ? "text-2xl font-bold text-white"
+                    : i === 1
+                      ? "text-lg text-white/60"
+                      : "text-sm text-white/35"
+                }
+              >
+                {ligne.texte || "—"}
+              </p>
+            ))}
+            {indexTap >= lignes.length && (
+              <p className="text-sm text-white/50">Fin de la liste.</p>
+            )}
+          </div>
+        )}
+
         {lignes.length === 0 ? (
           <p className="text-sm text-white/40">
             Collez des paroles à gauche puis générez la liste de lignes.
@@ -265,9 +367,7 @@ export default function Editeur() {
             return (
               <div
                 key={ligne.cle}
-                onClick={() => {
-                  if (ligne.t !== null) seekEtLire(ligne.t - 2);
-                }}
+                onClick={() => selectionnerLigne(index)}
                 className={`grid grid-cols-[2rem_auto_1fr_auto_auto] items-center gap-2 rounded border px-2 py-1 ${
                   estActuelle
                     ? "border-sky-400 bg-sky-400/10"
@@ -283,7 +383,7 @@ export default function Editeur() {
                   tabIndex={0}
                   onClick={(e) => {
                     e.stopPropagation();
-                    if (ligne.t !== null) seekEtLire(ligne.t - 2);
+                    selectionnerLigne(index);
                   }}
                   onKeyDown={(e) => surKeyDownTimestamp(e, ligne.cle)}
                   className={`rounded border px-1.5 py-0.5 font-mono text-xs focus:border-sky-400 focus:outline-none ${
@@ -407,7 +507,26 @@ export default function Editeur() {
           Lecture &amp; export
         </h1>
         {audioUrl ? (
-          <audio ref={audioRef} controls src={audioUrl} className="w-full" />
+          <>
+            <audio
+              ref={audioRef}
+              controls
+              src={audioUrl}
+              className="w-full"
+            />
+            <button
+              type="button"
+              className={
+                modeTap
+                  ? `${boutonClass} border-sky-400 bg-sky-400/20`
+                  : boutonClass
+              }
+              disabled={lignes.length === 0}
+              onClick={modeTap ? sortirModeTap : entrerModeTap}
+            >
+              {modeTap ? "Quitter le mode tap (Échap)" : "Entrer en mode tap"}
+            </button>
+          </>
         ) : (
           <p className="text-sm text-white/40">
             Sélectionnez un fichier audio à gauche.
