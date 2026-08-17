@@ -73,7 +73,7 @@ export default function Accueil() {
       } else if (e.key === "Enter") {
         e.preventDefault();
         const chanson = chansonsDuTheme[chansonIndex];
-        navigate("/jeu", { state: { chansonId: chanson.id } });
+        navigate(`/jeu/${chanson.id}`);
       }
     }
 
@@ -138,9 +138,7 @@ export default function Accueil() {
                   key={c.id}
                   selectionnee={i === chansonIndex}
                   jouee={joue}
-                  onClick={() =>
-                    navigate("/jeu", { state: { chansonId: c.id } })
-                  }
+                  onClick={() => navigate(`/jeu/${c.id}`)}
                 >
                   <span className="font-heading text-[clamp(1.4rem,2.9vw,2.9rem)] font-extrabold uppercase">
                     {c.titre}
