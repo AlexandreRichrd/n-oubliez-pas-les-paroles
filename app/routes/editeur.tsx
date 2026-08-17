@@ -3,6 +3,8 @@ import type { Route } from "./+types/editeur";
 import { slugifier } from "~/lib/editeur/slug";
 import { arrondirTemps, formaterTemps } from "~/lib/editeur/temps";
 import type { LigneEdition } from "~/lib/editeur/types";
+import { validerBrouillon } from "~/lib/editeur/validation";
+import type { Chanson, Line } from "~/lib/chanson";
 
 export function meta({}: Route.MetaArgs) {
   return [{ title: "Éditeur — N'oubliez pas les paroles" }];
@@ -38,9 +40,11 @@ export default function Editeur() {
   const [decalageMs, setDecalageMs] = useState(0);
   const [vitesseLecture, setVitesseLecture] = useState(1);
   const [modeApercu, setModeApercu] = useState(false);
+  const [dureeAudio, setDureeAudio] = useState<number | null>(null);
 
   const audioUrlRef = useRef<string | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const entreeImportRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
     if (!idModifieManuel) setId(slugifier(titre));
@@ -78,6 +82,11 @@ export default function Editeur() {
   const lignesAffichees = useMemo(
     () => lignes.filter((l) => l.t !== null && l.t <= tempsActuel),
     [lignes, tempsActuel],
+  );
+
+  const problemesValidation = useMemo(
+    () => validerBrouillon({ titre, artiste, theme, lignes, dureeAudio }),
+    [titre, artiste, theme, lignes, dureeAudio],
   );
 
   useEffect(() => {
@@ -275,6 +284,65 @@ export default function Editeur() {
       .filter((mot) => mot.length > 0)
       .map((mot) => "_".repeat(mot.length))
       .join(" ");
+  }
+
+  function construireChanson(): Chanson {
+    const decalageSec = decalageMs / 1000;
+    return {
+      id,
+      titre,
+      artiste,
+      ...(annee.trim() ? { annee: Number(annee) } : {}),
+      theme,
+      audio: `/audio/${id}.mp3`,
+      lignes: lignes.map((l): Line => {
+        const ligne: Line = {
+          t: arrondirTemps((l.t ?? 0) + decalageSec),
+          texte: l.texte,
+        };
+        if (l.trou) ligne.trou = true;
+        return ligne;
+      }),
+    };
+  }
+
+  function exporterJson() {
+    const chanson = construireChanson();
+    const blob = new Blob([JSON.stringify(chanson, null, 2)], {
+      type: "application/json",
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${id || "chanson"}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  function surImportJson(e: React.ChangeEvent<HTMLInputElement>) {
+    const fichier = e.target.files?.[0];
+    e.target.value = "";
+    if (!fichier) return;
+    fichier.text().then((texte) => {
+      const chanson = JSON.parse(texte) as Chanson;
+      setId(chanson.id);
+      setIdModifieManuel(true);
+      setTitre(chanson.titre);
+      setArtiste(chanson.artiste);
+      setTheme(chanson.theme);
+      setAnnee(chanson.annee !== undefined ? String(chanson.annee) : "");
+      setDecalageMs(0);
+      setLignes(
+        chanson.lignes.map(
+          (l): LigneEdition => ({
+            cle: crypto.randomUUID(),
+            texte: l.texte,
+            t: l.t,
+            trou: !!l.trou,
+          }),
+        ),
+      );
+    });
   }
 
   function surKeyDownTimestamp(e: React.KeyboardEvent, cle: string) {
@@ -559,6 +627,9 @@ export default function Editeur() {
               controls
               src={audioUrl}
               className="w-full"
+              onLoadedMetadata={(e) =>
+                setDureeAudio(e.currentTarget.duration)
+              }
             />
             <button
               type="button"
@@ -642,6 +713,37 @@ export default function Editeur() {
             Sélectionnez un fichier audio à gauche.
           </p>
         )}
+
+        <div className="flex flex-col gap-2 border-t border-white/10 pt-4">
+          <span className={labelClass}>Import / export</span>
+
+          {problemesValidation.length > 0 && (
+            <ul className="flex flex-col gap-1 rounded border border-amber-400/30 bg-amber-400/10 p-2 text-xs text-amber-300">
+              {problemesValidation.map((probleme) => (
+                <li key={probleme}>⚠ {probleme}</li>
+              ))}
+            </ul>
+          )}
+
+          <button type="button" className={boutonClass} onClick={exporterJson}>
+            Exporter en JSON
+          </button>
+
+          <input
+            ref={entreeImportRef}
+            type="file"
+            accept="application/json"
+            className="hidden"
+            onChange={surImportJson}
+          />
+          <button
+            type="button"
+            className={boutonClass}
+            onClick={() => entreeImportRef.current?.click()}
+          >
+            Importer un JSON existant
+          </button>
+        </div>
       </aside>
 
       {modeApercu && (
