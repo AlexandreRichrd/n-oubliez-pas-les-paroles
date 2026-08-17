@@ -4,6 +4,11 @@ import { slugifier } from "~/lib/editeur/slug";
 import { arrondirTemps, formaterTemps } from "~/lib/editeur/temps";
 import type { LigneEdition } from "~/lib/editeur/types";
 import { validerBrouillon } from "~/lib/editeur/validation";
+import {
+  chargerBrouillon,
+  effacerBrouillon,
+  sauvegarderBrouillon,
+} from "~/lib/editeur/persistence";
 import type { Chanson, Line } from "~/lib/chanson";
 
 export function meta({}: Route.MetaArgs) {
@@ -19,26 +24,38 @@ const boutonMiniClass =
   "rounded border border-white/15 bg-white/5 px-1.5 py-0.5 text-xs text-white/80 hover:bg-white/15 disabled:opacity-30 disabled:hover:bg-white/5";
 
 export default function Editeur() {
-  const [id, setId] = useState("");
-  const [idModifieManuel, setIdModifieManuel] = useState(false);
-  const [titre, setTitre] = useState("");
-  const [artiste, setArtiste] = useState("");
-  const [theme, setTheme] = useState("");
-  const [annee, setAnnee] = useState("");
+  const [brouillonInitial] = useState(() => chargerBrouillon());
+
+  const [id, setId] = useState(brouillonInitial?.id ?? "");
+  const [idModifieManuel, setIdModifieManuel] = useState(
+    brouillonInitial?.idModifieManuel ?? false,
+  );
+  const [titre, setTitre] = useState(brouillonInitial?.titre ?? "");
+  const [artiste, setArtiste] = useState(brouillonInitial?.artiste ?? "");
+  const [theme, setTheme] = useState(brouillonInitial?.theme ?? "");
+  const [annee, setAnnee] = useState(brouillonInitial?.annee ?? "");
 
   const [nomFichierAudio, setNomFichierAudio] = useState<string | null>(null);
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
 
-  const [texteParoles, setTexteParoles] = useState("");
-  const [lignes, setLignes] = useState<LigneEdition[]>([]);
+  const [texteParoles, setTexteParoles] = useState(
+    brouillonInitial?.texteParoles ?? "",
+  );
+  const [lignes, setLignes] = useState<LigneEdition[]>(
+    brouillonInitial?.lignes ?? [],
+  );
   const [tempsActuel, setTempsActuel] = useState(0);
   const [indexSelectionne, setIndexSelectionne] = useState<number | null>(
     null,
   );
   const [modeTap, setModeTap] = useState(false);
   const [indexTap, setIndexTap] = useState(0);
-  const [decalageMs, setDecalageMs] = useState(0);
-  const [vitesseLecture, setVitesseLecture] = useState(1);
+  const [decalageMs, setDecalageMs] = useState(
+    brouillonInitial?.decalageMs ?? 0,
+  );
+  const [vitesseLecture, setVitesseLecture] = useState(
+    brouillonInitial?.vitesseLecture ?? 1,
+  );
   const [modeApercu, setModeApercu] = useState(false);
   const [dureeAudio, setDureeAudio] = useState<number | null>(null);
 
@@ -59,6 +76,35 @@ export default function Editeur() {
   useEffect(() => {
     if (audioRef.current) audioRef.current.playbackRate = vitesseLecture;
   }, [vitesseLecture, audioUrl]);
+
+  useEffect(() => {
+    const minuteur = setTimeout(() => {
+      sauvegarderBrouillon({
+        id,
+        idModifieManuel,
+        titre,
+        artiste,
+        theme,
+        annee,
+        texteParoles,
+        lignes,
+        decalageMs,
+        vitesseLecture,
+      });
+    }, 500);
+    return () => clearTimeout(minuteur);
+  }, [
+    id,
+    idModifieManuel,
+    titre,
+    artiste,
+    theme,
+    annee,
+    texteParoles,
+    lignes,
+    decalageMs,
+    vitesseLecture,
+  ]);
 
   useEffect(() => {
     let frame: number;
@@ -345,6 +391,24 @@ export default function Editeur() {
     });
   }
 
+  function effacerLeBrouillon() {
+    const confirmer = window.confirm(
+      "Effacer le brouillon sauvegardé et réinitialiser l'éditeur ?",
+    );
+    if (!confirmer) return;
+    effacerBrouillon();
+    setId("");
+    setIdModifieManuel(false);
+    setTitre("");
+    setArtiste("");
+    setTheme("");
+    setAnnee("");
+    setTexteParoles("");
+    setLignes([]);
+    setDecalageMs(0);
+    setVitesseLecture(1);
+  }
+
   function surKeyDownTimestamp(e: React.KeyboardEvent, cle: string) {
     if (e.key === "ArrowLeft") {
       e.preventDefault();
@@ -358,9 +422,18 @@ export default function Editeur() {
   return (
     <div className="grid h-dvh w-full grid-cols-[340px_1fr_320px] gap-px bg-white/10 text-white">
       <aside className="flex flex-col gap-4 overflow-y-auto bg-[#050914] p-4">
-        <h1 className="text-sm font-semibold tracking-wide text-white/70 uppercase">
-          Métadonnées
-        </h1>
+        <div className="flex items-center justify-between">
+          <h1 className="text-sm font-semibold tracking-wide text-white/70 uppercase">
+            Métadonnées
+          </h1>
+          <button
+            type="button"
+            className="text-xs text-white/40 underline hover:text-white/70"
+            onClick={effacerLeBrouillon}
+          >
+            Effacer le brouillon
+          </button>
+        </div>
 
         <div className="flex flex-col gap-2">
           <label className="flex flex-col gap-1">
@@ -416,6 +489,11 @@ export default function Editeur() {
 
         <div className="flex flex-col gap-2 border-t border-white/10 pt-4">
           <span className={labelClass}>Fichier audio (local uniquement)</span>
+          {brouillonInitial && !audioUrl && (
+            <p className="rounded border border-amber-400/30 bg-amber-400/10 p-2 text-xs text-amber-300">
+              Brouillon restauré — sélectionnez à nouveau le fichier audio.
+            </p>
+          )}
           <input
             type="file"
             accept="audio/*"

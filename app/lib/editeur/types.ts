@@ -12,6 +12,7 @@ export type BrouillonEditeur = {
   artiste: string;
   theme: string;
   annee: string;
+  texteParoles: string;
   lignes: LigneEdition[];
   decalageMs: number;
   vitesseLecture: number;
