@@ -1,7 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Route } from "./+types/editeur";
 import { slugifier } from "~/lib/editeur/slug";
-import { arrondirTemps, formaterTemps } from "~/lib/editeur/temps";
+import {
+  arrondirTemps,
+  formaterTemps,
+  tempsCorrige,
+} from "~/lib/editeur/temps";
 import type { LigneEdition } from "~/lib/editeur/types";
 import { validerBrouillon } from "~/lib/editeur/validation";
 import {
@@ -120,19 +124,31 @@ export default function Editeur() {
   const ligneActuelleCle = useMemo(() => {
     let derniereCle: string | null = null;
     for (const l of lignes) {
-      if (l.t !== null && l.t <= tempsActuel) derniereCle = l.cle;
+      const t = tempsCorrige(l, decalageMs);
+      if (t !== null && t <= tempsActuel) derniereCle = l.cle;
     }
     return derniereCle;
-  }, [lignes, tempsActuel]);
+  }, [lignes, tempsActuel, decalageMs]);
 
   const lignesAffichees = useMemo(
-    () => lignes.filter((l) => l.t !== null && l.t <= tempsActuel),
-    [lignes, tempsActuel],
+    () =>
+      lignes.filter((l) => {
+        const t = tempsCorrige(l, decalageMs);
+        return t !== null && t <= tempsActuel;
+      }),
+    [lignes, tempsActuel, decalageMs],
   );
 
   const problemesValidation = useMemo(
-    () => validerBrouillon({ titre, artiste, theme, lignes, dureeAudio }),
-    [titre, artiste, theme, lignes, dureeAudio],
+    () =>
+      validerBrouillon({
+        titre,
+        artiste,
+        theme,
+        lignes: lignes.map((l) => ({ ...l, t: tempsCorrige(l, decalageMs) })),
+        dureeAudio,
+      }),
+    [titre, artiste, theme, lignes, decalageMs, dureeAudio],
   );
 
   useEffect(() => {
@@ -214,15 +230,20 @@ export default function Editeur() {
   function selectionnerLigne(index: number) {
     setIndexSelectionne(index);
     if (modeTap) setIndexTap(index);
-    const t = lignes[index]?.t;
-    if (t !== null && t !== undefined) seekEtLire(t - 2);
+    const ligne = lignes[index];
+    if (!ligne) return;
+    const t = tempsCorrige(ligne, decalageMs);
+    if (t !== null) seekEtLire(t - 2);
   }
 
   function entrerModeTap() {
     const audio = audioRef.current;
     if (!audio || lignes.length === 0) return;
     const depart = indexSelectionne ?? 0;
-    audio.currentTime = lignes[depart]?.t ?? 0;
+    const ligneDepart = lignes[depart];
+    audio.currentTime = ligneDepart
+      ? (tempsCorrige(ligneDepart, decalageMs) ?? 0)
+      : 0;
     void audio.play();
     setIndexTap(depart);
     setModeTap(true);
@@ -333,7 +354,6 @@ export default function Editeur() {
   }
 
   function construireChanson(): Chanson {
-    const decalageSec = decalageMs / 1000;
     return {
       id,
       titre,
@@ -343,7 +363,7 @@ export default function Editeur() {
       audio: `/audio/${id}.mp3`,
       lignes: lignes.map((l): Line => {
         const ligne: Line = {
-          t: arrondirTemps((l.t ?? 0) + decalageSec),
+          t: tempsCorrige(l, decalageMs) ?? 0,
           texte: l.texte,
         };
         if (l.trou) ligne.trou = true;
@@ -584,7 +604,10 @@ export default function Editeur() {
                       : "border-white/15 text-white/90"
                   }`}
                 >
-                  {ligne.t !== null ? formaterTemps(ligne.t) : "—:——.-"}
+                  {(() => {
+                    const t = tempsCorrige(ligne, decalageMs);
+                    return t !== null ? formaterTemps(t) : "—:——.-";
+                  })()}
                 </button>
 
                 <input
