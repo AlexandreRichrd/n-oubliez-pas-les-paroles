@@ -5,7 +5,17 @@ const CLE_STOCKAGE = "noublip:brouillon-editeur";
 export function chargerBrouillon(): BrouillonEditeur | null {
   try {
     const brut = window.localStorage.getItem(CLE_STOCKAGE);
-    return brut ? (JSON.parse(brut) as BrouillonEditeur) : null;
+    if (!brut) return null;
+    const brouillon = JSON.parse(brut) as BrouillonEditeur;
+    // Les brouillons d'avant les passages instrumentaux n'ont pas ces champs.
+    return {
+      ...brouillon,
+      lignes: (brouillon.lignes ?? []).map((l) => ({
+        ...l,
+        instrumental: !!l.instrumental,
+        label: l.label ?? "",
+      })),
+    };
   } catch {
     return null;
   }

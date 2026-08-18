@@ -38,8 +38,19 @@ export function validerBrouillon(params: {
     }
   }
 
-  if (!lignes.some((l) => l.trou)) {
+  // Une ligne instrumentale ne peut jamais tenir lieu de trou : il n'y a rien
+  // à chanter.
+  if (!lignes.some((l) => l.trou && !l.instrumental)) {
     problemes.push("Aucune ligne trou n'est marquée.");
+  }
+
+  const instrumentalesAvecTexte = lignes.filter(
+    (l) => l.instrumental && l.texte.trim().length > 0,
+  ).length;
+  if (instrumentalesAvecTexte > 0) {
+    problemes.push(
+      `${instrumentalesAvecTexte} ligne(s) instrumentale(s) contiennent des paroles.`,
+    );
   }
 
   return problemes;

@@ -2,6 +2,10 @@ export type Line = {
   t: number;
   texte: string;
   trou?: boolean;
+  /** Passage sans paroles (intro, solo, pont, outro). Exclusif avec trou. */
+  instrumental?: true;
+  /** Libellé court d'un passage instrumental ("Solo guitare"). Pas des paroles. */
+  label?: string;
 };
 
 export type Chanson = {

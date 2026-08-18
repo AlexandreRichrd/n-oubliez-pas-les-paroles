@@ -175,6 +175,9 @@ export default function Editeur() {
       if (e.key === " ") {
         e.preventDefault();
         assignerTapCourant();
+      } else if (e.key === "i" || e.key === "I") {
+        e.preventDefault();
+        insererInstrumentalTap();
       } else if (e.key === "Backspace") {
         e.preventDefault();
         reculerTap();
@@ -185,7 +188,7 @@ export default function Editeur() {
     }
     window.addEventListener("keydown", surKeyDown);
     return () => window.removeEventListener("keydown", surKeyDown);
-  }, [modeTap, indexTap, lignes.length]);
+  }, [modeTap, indexTap, lignes]);
 
   function surChangementFichierAudio(e: React.ChangeEvent<HTMLInputElement>) {
     const fichier = e.target.files?.[0];
@@ -215,6 +218,8 @@ export default function Editeur() {
           texte,
           t: null,
           trou: false,
+          instrumental: false,
+          label: "",
         }),
       );
     setLignes(nouvellesLignes);
@@ -282,6 +287,15 @@ export default function Editeur() {
   }
 
   function reculerTap() {
+    // Un instrumental juste au-dessus a été inséré, pas tapé : on le retire
+    // entièrement, ce qui ramène la ligne en attente à sa place précédente.
+    const precedente = indexTap > 0 ? lignes[indexTap - 1] : undefined;
+    if (precedente?.instrumental) {
+      setLignes((prev) => prev.filter((l) => l.cle !== precedente.cle));
+      setIndexTap(indexTap - 1);
+      return;
+    }
+
     const nouvelIndex = Math.max(0, indexTap - 1);
     setLignes((prev) => {
       if (nouvelIndex >= prev.length) return prev;
@@ -298,9 +312,34 @@ export default function Editeur() {
     );
   }
 
+  function modifierLabel(cle: string, label: string) {
+    setLignes((prev) =>
+      prev.map((l) => (l.cle === cle ? { ...l, label } : l)),
+    );
+  }
+
   function basculerTrou(cle: string) {
     setLignes((prev) =>
-      prev.map((l) => (l.cle === cle ? { ...l, trou: !l.trou } : l)),
+      prev.map((l) =>
+        l.cle === cle
+          ? // Marquer trou lève l'instrumental : on ne peut pas chanter un solo.
+            { ...l, trou: !l.trou, instrumental: l.trou ? l.instrumental : false }
+          : l,
+      ),
+    );
+  }
+
+  function basculerInstrumental(cle: string) {
+    setLignes((prev) =>
+      prev.map((l) =>
+        l.cle === cle
+          ? {
+              ...l,
+              instrumental: !l.instrumental,
+              trou: l.instrumental ? l.trou : false,
+            }
+          : l,
+      ),
     );
   }
 
@@ -338,11 +377,49 @@ export default function Editeur() {
         texte: "",
         t: null,
         trou: false,
+        instrumental: false,
+        label: "",
       };
       const copie = [...prev];
       copie.splice(position === "avant" ? i : i + 1, 0, nouvelle);
       return copie;
     });
+  }
+
+  function creerLigneInstrumentale(t: number | null): LigneEdition {
+    return {
+      cle: crypto.randomUUID(),
+      texte: "",
+      t,
+      trou: false,
+      instrumental: true,
+      label: "",
+    };
+  }
+
+  /**
+   * Insère un passage instrumental AU-DESSUS de `index`. La ligne qui s'y
+   * trouvait reste en attente : elle est simplement décalée d'un cran.
+   */
+  function insererInstrumental(index: number, t: number | null) {
+    setLignes((prev) => {
+      const copie = [...prev];
+      copie.splice(index, 0, creerLigneInstrumentale(t));
+      return copie;
+    });
+  }
+
+  function insererInstrumentalTap() {
+    const audio = audioRef.current;
+    if (!audio) return;
+    // Capture, pas lecture : on écrit le temps brut, sans décalage.
+    insererInstrumental(indexTap, arrondirTemps(audio.currentTime));
+    setIndexTap((i) => i + 1);
+  }
+
+  function insererIntro() {
+    insererInstrumental(0, 0);
+    if (modeTap) setIndexTap((i) => i + 1);
   }
 
   function blanchirTexte(texte: string): string {
@@ -367,6 +444,10 @@ export default function Editeur() {
           texte: l.texte,
         };
         if (l.trou) ligne.trou = true;
+        if (l.instrumental) {
+          ligne.instrumental = true;
+          if (l.label.trim()) ligne.label = l.label.trim();
+        }
         return ligne;
       }),
     };
@@ -404,7 +485,10 @@ export default function Editeur() {
             cle: crypto.randomUUID(),
             texte: l.texte,
             t: l.t,
-            trou: !!l.trou,
+            // L'exclusion mutuelle prime : un instrumental n'est jamais un trou.
+            trou: !!l.trou && !l.instrumental,
+            instrumental: !!l.instrumental,
+            label: l.label ?? "",
           }),
         ),
       );
@@ -539,15 +623,25 @@ export default function Editeur() {
       </aside>
 
       <main className="flex flex-col gap-1 overflow-y-auto bg-[#050914] p-4">
-        <h1 className="mb-2 text-sm font-semibold tracking-wide text-white/70 uppercase">
-          Lignes
-        </h1>
+        <div className="mb-2 flex items-center justify-between">
+          <h1 className="text-sm font-semibold tracking-wide text-white/70 uppercase">
+            Lignes
+          </h1>
+          <button
+            type="button"
+            className={boutonMiniClass}
+            title="Insérer un passage instrumental d'intro à 0:00"
+            onClick={insererIntro}
+          >
+            ♪ Intro à 0:00
+          </button>
+        </div>
 
         {modeTap && (
           <div className="mb-3 flex flex-col gap-1 rounded border border-sky-400/40 bg-sky-400/10 p-3">
             <p className="text-xs font-medium tracking-wide text-sky-300 uppercase">
-              Mode tap — Espace : poser · Retour arrière : annuler · Échap :
-              quitter
+              Mode tap — Espace : poser · I : passage instrumental · Retour
+              arrière : annuler · Échap : quitter
             </p>
             {lignes.slice(indexTap, indexTap + 3).map((ligne, i) => (
               <p
@@ -560,7 +654,9 @@ export default function Editeur() {
                       : "text-sm text-white/35"
                 }
               >
-                {ligne.texte || "—"}
+                {ligne.instrumental
+                  ? `♪ ${ligne.label || "Passage instrumental"}`
+                  : ligne.texte || "—"}
               </p>
             ))}
             {indexTap >= lignes.length && (
@@ -583,7 +679,9 @@ export default function Editeur() {
                 className={`grid grid-cols-[2rem_auto_1fr_auto_auto] items-center gap-2 rounded border px-2 py-1 ${
                   estActuelle
                     ? "border-sky-400 bg-sky-400/10"
-                    : "border-transparent hover:bg-white/5"
+                    : ligne.instrumental
+                      ? "border-violet-400/30 bg-violet-400/5 hover:bg-violet-400/10"
+                      : "border-transparent hover:bg-white/5"
                 } ${ligne.t === null ? "opacity-60" : ""}`}
               >
                 <span className="text-right text-xs text-white/40">
@@ -610,24 +708,67 @@ export default function Editeur() {
                   })()}
                 </button>
 
-                <input
-                  className="w-full rounded border border-transparent bg-transparent px-1 py-0.5 text-sm text-white outline-none focus:border-white/20"
-                  value={ligne.texte}
-                  onClick={(e) => e.stopPropagation()}
-                  onChange={(e) => modifierTexte(ligne.cle, e.target.value)}
-                />
+                {ligne.instrumental ? (
+                  <div className="flex w-full items-center gap-2">
+                    <span
+                      className="text-base text-violet-300"
+                      title="Passage sans paroles"
+                    >
+                      ♪
+                    </span>
+                    <input
+                      className="w-full rounded border border-transparent bg-transparent px-1 py-0.5 text-sm text-violet-200 italic outline-none placeholder:text-violet-300/40 focus:border-violet-400/40"
+                      placeholder="Intro, Solo guitare, Pont…"
+                      value={ligne.label}
+                      onClick={(e) => e.stopPropagation()}
+                      onChange={(e) => modifierLabel(ligne.cle, e.target.value)}
+                    />
+                  </div>
+                ) : (
+                  <input
+                    className="w-full rounded border border-transparent bg-transparent px-1 py-0.5 text-sm text-white outline-none focus:border-white/20"
+                    value={ligne.texte}
+                    onClick={(e) => e.stopPropagation()}
+                    onChange={(e) => modifierTexte(ligne.cle, e.target.value)}
+                  />
+                )}
 
-                <label
-                  className="flex items-center gap-1 text-xs text-white/60"
+                <div
+                  className="flex items-center gap-2"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <input
-                    type="checkbox"
-                    checked={ligne.trou}
-                    onChange={() => basculerTrou(ligne.cle)}
-                  />
-                  trou
-                </label>
+                  <label
+                    className={`flex items-center gap-1 text-xs ${
+                      ligne.instrumental
+                        ? "cursor-not-allowed text-white/25"
+                        : "text-white/60"
+                    }`}
+                    title={
+                      ligne.instrumental
+                        ? "Impossible : un passage instrumental n'a rien à chanter"
+                        : undefined
+                    }
+                  >
+                    <input
+                      type="checkbox"
+                      checked={ligne.trou}
+                      disabled={ligne.instrumental}
+                      onChange={() => basculerTrou(ligne.cle)}
+                    />
+                    trou
+                  </label>
+                  <label
+                    className="flex items-center gap-1 text-xs text-violet-300/80"
+                    title="Passage instrumental (sans paroles)"
+                  >
+                    <input
+                      type="checkbox"
+                      checked={ligne.instrumental}
+                      onChange={() => basculerInstrumental(ligne.cle)}
+                    />
+                    ♪
+                  </label>
+                </div>
 
                 <div
                   className="flex items-center gap-0.5"
@@ -701,6 +842,21 @@ export default function Editeur() {
                     onClick={() => insererLigne(ligne.cle, "apres")}
                   >
                     +↓
+                  </button>
+                  <button
+                    type="button"
+                    title="Insérer un passage instrumental au-dessus (au temps de lecture courant)"
+                    className={boutonMiniClass}
+                    onClick={() =>
+                      insererInstrumental(
+                        index,
+                        audioRef.current
+                          ? arrondirTemps(audioRef.current.currentTime)
+                          : null,
+                      )
+                    }
+                  >
+                    +♪
                   </button>
                   <button
                     type="button"
@@ -859,8 +1015,17 @@ export default function Editeur() {
 
           <div className="flex w-full max-w-3xl flex-col items-center gap-3 text-center">
             {lignesAffichees.slice(-4, -1).map((ligne) => (
-              <p key={ligne.cle} className="text-lg text-white/35">
-                {ligne.texte}
+              <p
+                key={ligne.cle}
+                className={
+                  ligne.instrumental
+                    ? "text-lg text-violet-300/40 italic"
+                    : "text-lg text-white/35"
+                }
+              >
+                {ligne.instrumental
+                  ? `♪ ${ligne.label || ""}`.trim()
+                  : ligne.texte}
               </p>
             ))}
             {(() => {
@@ -869,6 +1034,15 @@ export default function Editeur() {
                 return (
                   <p className="text-sm text-white/30">
                     En attente de la première ligne…
+                  </p>
+                );
+              }
+              // Un passage instrumental vide la zone de paroles au lieu de
+              // laisser la ligne précédente figée à l'écran.
+              if (courante.instrumental) {
+                return (
+                  <p className="text-3xl font-bold text-violet-300 italic">
+                    ♪ {courante.label}
                   </p>
                 );
               }

@@ -3,6 +3,8 @@ export type LigneEdition = {
   texte: string;
   t: number | null;
   trou: boolean;
+  instrumental: boolean;
+  label: string;
 };
 
 export type BrouillonEditeur = {
