@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import type { Route } from "./+types/jeu";
 import type { Chanson, Line } from "~/lib/chanson";
 import { blanchirTexte, indexLigneCourante } from "~/lib/lecture";
+import { markSongPlayed } from "~/lib/playedSongs";
 
 export function meta({ params }: Route.MetaArgs) {
   return [{ title: `${params.chansonId} — N'oubliez pas les paroles` }];
@@ -208,6 +209,17 @@ export default function Jeu({ params }: Route.ComponentProps) {
   const courante = index === -1 ? undefined : chanson.lignes[index];
   const precedentes = chanson.lignes.slice(Math.max(0, index - 3), index);
 
+  const jugements = Object.values(resultats);
+  const bonnes = jugements.filter((r) => r === "correct").length;
+  const mauvaises = jugements.filter((r) => r === "faux").length;
+
+  function terminerManche() {
+    markSongPlayed(chansonId);
+    navigate("/score", {
+      state: { bonnes, mauvaises, titre: chanson?.titre },
+    });
+  }
+
   return (
     <div className="stage-bg relative flex min-h-dvh w-full flex-col overflow-hidden">
       {/*
@@ -221,11 +233,19 @@ export default function Jeu({ params }: Route.ComponentProps) {
         preload="auto"
         autoPlay
         onError={() => setErreurAudio(true)}
+        onEnded={terminerManche}
       />
 
-      <header className="pt-10 text-center">
+      <header className="flex items-center justify-between px-10 pt-10">
+        <span className="w-32" />
         <p className="font-heading text-[clamp(1rem,1.6vw,1.6rem)] font-bold tracking-[0.3em] text-sky-300/70 uppercase">
           {chanson.titre}
+        </p>
+        {/* Le score reste discret : cet écran parle des paroles. */}
+        <p className="w-32 text-right font-heading text-[clamp(0.9rem,1.3vw,1.3rem)] font-bold tracking-widest">
+          <span className="text-green-400/70">{bonnes}</span>
+          <span className="text-white/25"> / </span>
+          <span className="text-red-400/70">{mauvaises}</span>
         </p>
       </header>
 
