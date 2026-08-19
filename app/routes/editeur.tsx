@@ -7,6 +7,11 @@ import {
   tempsCorrige,
 } from "~/lib/editeur/temps";
 import type { LigneEdition } from "~/lib/editeur/types";
+import {
+  blanchirTexte,
+  indexLigneCourante,
+  lignesJouees,
+} from "~/lib/lecture";
 import { validerBrouillon } from "~/lib/editeur/validation";
 import {
   chargerBrouillon,
@@ -122,20 +127,15 @@ export default function Editeur() {
   }, []);
 
   const ligneActuelleCle = useMemo(() => {
-    let derniereCle: string | null = null;
-    for (const l of lignes) {
-      const t = tempsCorrige(l, decalageMs);
-      if (t !== null && t <= tempsActuel) derniereCle = l.cle;
-    }
-    return derniereCle;
+    const index = indexLigneCourante(lignes, tempsActuel, (l) =>
+      tempsCorrige(l, decalageMs),
+    );
+    return index === -1 ? null : lignes[index].cle;
   }, [lignes, tempsActuel, decalageMs]);
 
   const lignesAffichees = useMemo(
     () =>
-      lignes.filter((l) => {
-        const t = tempsCorrige(l, decalageMs);
-        return t !== null && t <= tempsActuel;
-      }),
+      lignesJouees(lignes, tempsActuel, (l) => tempsCorrige(l, decalageMs)),
     [lignes, tempsActuel, decalageMs],
   );
 
@@ -420,14 +420,6 @@ export default function Editeur() {
   function insererIntro() {
     insererInstrumental(0, 0);
     if (modeTap) setIndexTap((i) => i + 1);
-  }
-
-  function blanchirTexte(texte: string): string {
-    return texte
-      .split(/\s+/)
-      .filter((mot) => mot.length > 0)
-      .map((mot) => "_".repeat(mot.length))
-      .join(" ");
   }
 
   function construireChanson(): Chanson {
