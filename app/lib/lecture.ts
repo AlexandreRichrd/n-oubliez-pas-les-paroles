@@ -33,11 +33,14 @@ export function lignesJouees<T>(
   });
 }
 
-/** Remplace chaque mot par des underscores de même longueur. */
+/**
+ * Remplace chaque mot par des underscores de même longueur, en laissant la
+ * ponctuation extérieure visible : « Salut, toi ! » → « _____, ___ ! ».
+ * La ponctuation interne d'un mot (apostrophe, trait d'union) est masquée avec
+ * lui, sinon « l'amour » trahirait l'élision.
+ */
 export function blanchirTexte(texte: string): string {
-  return texte
-    .split(/\s+/)
-    .filter((mot) => mot.length > 0)
-    .map((mot) => "_".repeat(mot.length))
-    .join(" ");
+  return texte.replace(/[\p{L}\p{N}][\p{L}\p{N}'’-]*/gu, (mot) =>
+    "_".repeat(mot.length),
+  );
 }

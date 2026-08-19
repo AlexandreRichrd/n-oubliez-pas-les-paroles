@@ -2,16 +2,45 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import type { Route } from "./+types/jeu";
 import type { Chanson, Line } from "~/lib/chanson";
-import { indexLigneCourante } from "~/lib/lecture";
+import { blanchirTexte, indexLigneCourante } from "~/lib/lecture";
 
 export function meta({ params }: Route.MetaArgs) {
   return [{ title: `${params.chansonId} — N'oubliez pas les paroles` }];
 }
 
 type Statut = "chargement" | "trouvee" | "introuvable";
+type Resultat = "correct" | "faux";
 
 /** Les timestamps des chansons exportées ont déjà le décalage intégré. */
 const tDe = (ligne: Line) => ligne.t;
+
+const DUREE_FONDU_MS = 200;
+
+/** Rampe de volume sur l'élément lui-même — pas de Web Audio ici. */
+function lancerFondu(
+  audio: HTMLAudioElement,
+  cible: number,
+  refFrame: { current: number | null },
+  surFin?: () => void,
+) {
+  if (refFrame.current !== null) cancelAnimationFrame(refFrame.current);
+  const depart = audio.volume;
+  const debut = performance.now();
+  function etape(maintenant: number) {
+    const progression = Math.min(
+      1,
+      (maintenant - debut) / DUREE_FONDU_MS,
+    );
+    audio.volume = depart + (cible - depart) * progression;
+    if (progression < 1) {
+      refFrame.current = requestAnimationFrame(etape);
+    } else {
+      refFrame.current = null;
+      surFin?.();
+    }
+  }
+  refFrame.current = requestAnimationFrame(etape);
+}
 
 export default function Jeu({ params }: Route.ComponentProps) {
   const { chansonId } = params;
@@ -24,8 +53,13 @@ export default function Jeu({ params }: Route.ComponentProps) {
   const [tempsActuel, setTempsActuel] = useState(0);
   const [enPause, setEnPause] = useState(false);
   const [overlayVisible, setOverlayVisible] = useState(false);
+  const [attente, setAttente] = useState<number | null>(null);
+  const [resultats, setResultats] = useState<Record<number, Resultat>>({});
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const fonduRef = useRef<number | null>(null);
+  /** Trous déjà joués — jugés ou sautés — pour ne pas s'y arrêter deux fois. */
+  const trousTraitesRef = useRef<Set<number>>(new Set());
 
   useEffect(() => {
     setStatut("chargement");
@@ -54,13 +88,60 @@ export default function Jeu({ params }: Route.ComponentProps) {
   }, [statut]);
 
   useEffect(() => {
+    return () => {
+      if (fonduRef.current !== null) cancelAnimationFrame(fonduRef.current);
+    };
+  }, []);
+
+  // Arrivée sur un trou : fondu à 0, pause, et on attend le jugement.
+  useEffect(() => {
+    if (!chanson || attente !== null) return;
+    const audio = audioRef.current;
+    if (!audio || audio.paused) return;
+    const index = indexLigneCourante(chanson.lignes, tempsActuel, tDe);
+    if (index === -1) return;
+    const ligne = chanson.lignes[index];
+    if (!ligne.trou || ligne.instrumental) return;
+    if (trousTraitesRef.current.has(index)) return;
+
+    trousTraitesRef.current.add(index);
+    setAttente(index);
+    lancerFondu(audio, 0, fonduRef, () => audio.pause());
+  }, [chanson, tempsActuel, attente]);
+
+  function juger(resultat: Resultat) {
+    if (attente === null) return;
+    setResultats((prev) => ({ ...prev, [attente]: resultat }));
+    setAttente(null);
+    const audio = audioRef.current;
+    if (!audio) return;
+    void audio.play();
+    lancerFondu(audio, 1, fonduRef);
+  }
+
+  useEffect(() => {
     function surKeyDown(e: KeyboardEvent) {
       const audio = audioRef.current;
+      if (e.key === "Enter") {
+        e.preventDefault();
+        // Ignoré hors jugement : une touche perdue ne doit pas noter une
+        // ligne qui n'est pas soumise au jury.
+        juger("correct");
+        return;
+      }
+      if (e.key === "Backspace") {
+        e.preventDefault();
+        juger("faux");
+        return;
+      }
       if (e.key === " ") {
         // Sans preventDefault le navigateur défile et re-déclenche le dernier
         // contrôle qui avait le focus.
         e.preventDefault();
         if (!audio) return;
+        // L'arrêt sur un trou est délibéré : Espace ne doit pas le relancer
+        // sans jugement, sinon le son revient à volume 0.
+        if (attente !== null) return;
         if (audio.paused) {
           void audio.play();
           setEnPause(false);
@@ -82,7 +163,7 @@ export default function Jeu({ params }: Route.ComponentProps) {
     }
     window.addEventListener("keydown", surKeyDown);
     return () => window.removeEventListener("keydown", surKeyDown);
-  }, [chanson, tempsActuel, navigate]);
+  }, [chanson, tempsActuel, navigate, attente]);
 
   function allerLigneSuivante() {
     const audio = audioRef.current;
@@ -90,11 +171,14 @@ export default function Jeu({ params }: Route.ComponentProps) {
     const index = indexLigneCourante(chanson.lignes, audio.currentTime, tDe);
     const suivante = chanson.lignes[index + 1];
     if (!suivante) return;
+    // Sauter par-dessus un trou l'abandonne sans le noter.
+    if (attente !== null) setAttente(null);
     audio.currentTime = suivante.t;
     if (audio.paused) {
       void audio.play();
       setEnPause(false);
     }
+    lancerFondu(audio, 1, fonduRef);
   }
 
   if (statut === "chargement") {
@@ -172,8 +256,18 @@ export default function Jeu({ params }: Route.ComponentProps) {
             ♪ {courante.label ?? ""}
           </p>
         ) : (
-          <p className="font-heading text-[clamp(2.2rem,5.5vw,5.5rem)] font-black text-white uppercase [text-shadow:0_3px_0_oklch(0.15_0.08_260),0_8px_24px_oklch(0_0_0/0.5)]">
-            {courante.texte}
+          <p
+            className={`font-heading text-[clamp(2.2rem,5.5vw,5.5rem)] font-black uppercase [text-shadow:0_3px_0_oklch(0.15_0.08_260),0_8px_24px_oklch(0_0_0/0.5)] ${
+              resultats[index] === "correct"
+                ? "text-green-400"
+                : resultats[index] === "faux"
+                  ? "text-red-400"
+                  : "text-white"
+            }`}
+          >
+            {attente === index
+              ? blanchirTexte(courante.texte)
+              : courante.texte}
           </p>
         )}
       </div>
