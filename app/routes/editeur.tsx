@@ -28,7 +28,7 @@ const champClass =
   "w-full rounded border border-white/15 bg-white/5 px-2 py-1 text-sm text-white outline-none focus:border-sky-400";
 const labelClass = "text-xs font-medium text-white/50";
 const boutonClass =
-  "rounded border border-white/15 bg-white/10 px-3 py-1.5 text-sm font-medium text-white hover:bg-white/15";
+  "rounded border border-white/15 bg-white/10 px-3 py-1.5 text-sm font-medium text-white hover:bg-white/15 disabled:opacity-30 disabled:hover:bg-white/10 disabled:cursor-not-allowed";
 const boutonMiniClass =
   "rounded border border-white/15 bg-white/5 px-1.5 py-0.5 text-xs text-white/80 hover:bg-white/15 disabled:opacity-30 disabled:hover:bg-white/5";
 
