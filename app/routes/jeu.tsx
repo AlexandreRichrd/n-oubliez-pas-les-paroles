@@ -56,6 +56,7 @@ export default function Jeu({ params }: Route.ComponentProps) {
   const [overlayVisible, setOverlayVisible] = useState(false);
   const [attente, setAttente] = useState<number | null>(null);
   const [resultats, setResultats] = useState<Record<number, Resultat>>({});
+  const [indiceInitiales, setIndiceInitiales] = useState(false);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const fonduRef = useRef<number | null>(null);
@@ -93,6 +94,11 @@ export default function Jeu({ params }: Route.ComponentProps) {
       if (fonduRef.current !== null) cancelAnimationFrame(fonduRef.current);
     };
   }, []);
+
+  // L'indice ne doit jamais survivre au trou pour lequel il a été demandé.
+  useEffect(() => {
+    setIndiceInitiales(false);
+  }, [attente]);
 
   // Arrivée sur un trou : fondu à 0, pause, et on attend le jugement.
   useEffect(() => {
@@ -160,6 +166,11 @@ export default function Jeu({ params }: Route.ComponentProps) {
       } else if (e.key === "h" || e.key === "H") {
         e.preventDefault();
         setOverlayVisible((v) => !v);
+      } else if (e.key === "i" || e.key === "I") {
+        e.preventDefault();
+        // L'indice n'a de sens que pendant le jugement d'un trou.
+        if (attente === null) return;
+        setIndiceInitiales((v) => !v);
       }
     }
     window.addEventListener("keydown", surKeyDown);
@@ -286,7 +297,7 @@ export default function Jeu({ params }: Route.ComponentProps) {
             }`}
           >
             {attente === index
-              ? blanchirTexte(courante.texte)
+              ? blanchirTexte(courante.texte, indiceInitiales)
               : courante.texte}
           </p>
         )}
@@ -319,6 +330,7 @@ export default function Jeu({ params }: Route.ComponentProps) {
             <li>Entrée — Bonne réponse</li>
             <li>Retour arr. — Mauvaise réponse</li>
             <li>→ — Ligne suivante</li>
+            <li>I — Indice (initiales)</li>
             <li>Échap — Abandonner</li>
             <li>H — Masquer cette aide</li>
           </ul>

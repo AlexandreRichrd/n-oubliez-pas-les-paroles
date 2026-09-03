@@ -34,15 +34,17 @@ export function lignesJouees<T>(
 }
 
 /**
- * Remplace chaque mot par son initiale suivie d'underscores, comme dans
- * « N'oubliez pas les paroles » : « Salut, toi ! » → « S____, t__ ! ».
- * La ponctuation extérieure reste visible. La ponctuation interne d'un mot
- * (apostrophe, trait d'union) est masquée avec lui, sinon « l'amour »
- * trahirait l'élision.
+ * Remplace chaque mot par des underscores, en laissant la ponctuation
+ * extérieure visible : « Salut, toi ! » → « _____, ___ ! ».
+ * La ponctuation interne d'un mot (apostrophe, trait d'union) est masquée avec
+ * lui, sinon « l'amour » trahirait l'élision.
+ *
+ * Avec `avecInitiales`, la première lettre de chaque mot reste visible — un
+ * indice à la demande de l'animateur, pas l'affichage par défaut :
+ * « Salut, toi ! » → « S____, t__ ! ».
  */
-export function blanchirTexte(texte: string): string {
-  return texte.replace(
-    /[\p{L}\p{N}][\p{L}\p{N}'’-]*/gu,
-    (mot) => mot[0] + "_".repeat(mot.length - 1),
+export function blanchirTexte(texte: string, avecInitiales = false): string {
+  return texte.replace(/[\p{L}\p{N}][\p{L}\p{N}'’-]*/gu, (mot) =>
+    avecInitiales ? mot[0] + "_".repeat(mot.length - 1) : "_".repeat(mot.length),
   );
 }
