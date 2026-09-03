@@ -1,0 +1,220 @@
+{
+  "id": "on-s-attache",
+  "titre": "On s'attache",
+  "artiste": "Christophe Maé",
+  "annee": 2007,
+  "theme": "Drogue",
+  "audio": "/audio/on-s-attache.mp3",
+  "lignes": [
+    {
+      "t": 0,
+      "texte": "",
+      "instrumental": true
+    },
+    {
+      "t": 10.3,
+      "texte": "J'ai pas le style"
+    },
+    {
+      "t": 12.8,
+      "texte": "Pourtant pas hostile"
+    },
+    {
+      "t": 16.1,
+      "texte": "Mais c'est pas pour moi le costard uniforme"
+    },
+    {
+      "t": 20.1,
+      "texte": "J'ai pas l'intégrale"
+    },
+    {
+      "t": 22.3,
+      "texte": "Du gendre idéal"
+    },
+    {
+      "t": 26.2,
+      "texte": "J'aurai toujours l'impression qu'on m'espionne"
+    },
+    {
+      "t": 30.1,
+      "texte": "Pourtant pas contre l'amour"
+    },
+    {
+      "t": 31.9,
+      "texte": "Je serai même plutôt pour"
+    },
+    {
+      "t": 35.8,
+      "texte": "Mais c'est pas pour autant qu'il faut"
+    },
+    {
+      "t": 38.2,
+      "texte": "Qu'on s'attache et qu'on s'empoisonne"
+    },
+    {
+      "t": 41.8,
+      "texte": "Avec une flèche qui nous illusionne, faut pas"
+    },
+    {
+      "t": 47.5,
+      "texte": "Qu'on s'attache et qu'on s'emprisonne"
+    },
+    {
+      "t": 51.4,
+      "texte": "Mais rien n'empêche que l'on s'abandonne, non"
+    },
+    {
+      "t": 58.8,
+      "texte": "D'un chef de file"
+    },
+    {
+      "t": 61.3,
+      "texte": "J'en ai pas l'profil"
+    },
+    {
+      "t": 64.6,
+      "texte": "Mais sur l'oreiller, j'aime pas qu'on me questionne"
+    },
+    {
+      "t": 68.5,
+      "texte": "Je suis pas James Bond"
+    },
+    {
+      "t": 70.4,
+      "texte": "Entouré de belles blondes (non, non, non)"
+    },
+    {
+      "t": 74.5,
+      "texte": "J'envie même pas les hommes qui papillonnent"
+    },
+    {
+      "t": 78.1,
+      "texte": "Pourtant pas contre l'amour"
+    },
+    {
+      "t": 80.5,
+      "texte": "J'attends plutôt mon tour"
+    },
+    {
+      "t": 84,
+      "texte": "Mais c'est pas pour autant qu'il faut"
+    },
+    {
+      "t": 86.2,
+      "texte": "Qu'on s'attache et qu'on s'empoisonne",
+      "trou": true
+    },
+    {
+      "t": 90.2,
+      "texte": "Avec une flèche qui nous illusionne, faut pas"
+    },
+    {
+      "t": 95.6,
+      "texte": "Qu'on s'attache et qu'on s'emprisonne"
+    },
+    {
+      "t": 99.6,
+      "texte": "Mais rien n'empêche que l'on s'abandonne, non"
+    },
+    {
+      "t": 105.2,
+      "texte": "On le sait bien"
+    },
+    {
+      "t": 106.6,
+      "texte": "Le quotidien, ça nous tue, ça nous tient"
+    },
+    {
+      "t": 110.1,
+      "texte": "Ça nous fait mal (ça nous fait mal)"
+    },
+    {
+      "t": 112.6,
+      "texte": "Rien de plus normal"
+    },
+    {
+      "t": 115.1,
+      "texte": "Mais tu t'enfiles dans la file"
+    },
+    {
+      "t": 116.4,
+      "texte": "Et faut pas qu'tu dépasses"
+    },
+    {
+      "t": 117.9,
+      "texte": "À chaque fois qu'tu resquilles"
+    },
+    {
+      "t": 120,
+      "texte": "Mais t'es qui?"
+    },
+    {
+      "t": 121.7,
+      "texte": "T'es pas normal"
+    },
+    {
+      "t": 124.7,
+      "texte": "On s'attache et on s'empoisonne"
+    },
+    {
+      "t": 128.4,
+      "texte": "Avec une flèche qui nous illusionne, faut pas, non"
+    },
+    {
+      "t": 133.9,
+      "texte": "Qu'on s'attache et qu'on s'emprisonne (c'est beau, l'amour, j'attends mon tour)"
+    },
+    {
+      "t": 137.8,
+      "texte": "Mais rien n'empêche que l'on s'abandonne, non (c'est beau, l'amour quand on me tourne pas autour)"
+    },
+    {
+      "t": 143.3,
+      "texte": "Qu'on s'attache et qu'on s'empoisonne (c'est beau, l'amour, j'attends mon tour)"
+    },
+    {
+      "t": 147.4,
+      "texte": "Avec une flèche qui nous illusionne, faut pas, non (c'est beau, l'amour quand on me tourne pas autour)"
+    },
+    {
+      "t": 153.1,
+      "texte": "Qu'on s'attache et qu'on s'emprisonne (c'est beau, l'amour, j'attends mon tour)"
+    },
+    {
+      "t": 157.1,
+      "texte": "Mais rien n'empêche que l'on s'abandonne, non, non (c'est beau, l'amour quand on me tourne pas autour)"
+    },
+    {
+      "t": 162.9,
+      "texte": "Qu'on s'attache"
+    },
+    {
+      "t": 163.9,
+      "texte": "Non, je ne sais pas faire comme"
+    },
+    {
+      "t": 165.5,
+      "texte": "Après tout, je ne suis qu'un homme"
+    },
+    {
+      "t": 168.6,
+      "texte": "Non, je veux pas vivre comme"
+    },
+    {
+      "t": 170.2,
+      "texte": "Dans la case de l'oncle Tom"
+    },
+    {
+      "t": 173.5,
+      "texte": "Comme Papa Dalton"
+    },
+    {
+      "t": 175.8,
+      "texte": "Me retrouver dans un album (c'est beau l'amour)"
+    },
+    {
+      "t": 180.4,
+      "texte": "Après tout, je ne suis qu'un homme"
+    }
+  ]
+}

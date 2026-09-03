@@ -1,22 +1,96 @@
 {
   "themes": [
-    { "id": "bandes-originales", "nom": "Bandes originales de films" },
-    { "id": "tubes-80s", "nom": "Tubes 80s" }
+    { "id": "la-lune", "nom": "La lune" },
+    { "id": "prenoms", "nom": "Prénoms" },
+    { "id": "amitie", "nom": "Amitié" },
+    { "id": "amours-incertaines", "nom": "Amours incertaines" },
+    { "id": "doubles-lectures", "nom": "Doubles lectures" },
+    { "id": "rnb-francais", "nom": "R&B français" }
   ],
   "chansons": [
     {
-      "id": "chasing-the-credits",
-      "titre": "Chasing The Credits",
-      "artiste": "Artiste Imaginaire",
-      "annee": 2004,
-      "theme": "bandes-originales"
+      "id": "j-ai-demande-a-la-lune",
+      "titre": "J'ai demandé à la lune",
+      "artiste": "Indochine",
+      "annee": 2002,
+      "theme": "la-lune"
     },
     {
-      "id": "neon-highway",
-      "titre": "Neon Highway",
-      "artiste": "Artiste Imaginaire",
-      "annee": 1986,
-      "theme": "tubes-80s"
+      "id": "ma-philosophie",
+      "titre": "Ma philosophie",
+      "artiste": "Amel Bent",
+      "annee": 2004,
+      "theme": "la-lune"
+    },
+    {
+      "id": "lola",
+      "titre": "Lola",
+      "artiste": "Superbus",
+      "annee": 2006,
+      "theme": "prenoms"
+    },
+    {
+      "id": "moi-lolita",
+      "titre": "Moi... Lolita",
+      "artiste": "Alizée",
+      "annee": 2000,
+      "theme": "prenoms"
+    },
+    {
+      "id": "je-serai-ta-meilleure-amie",
+      "titre": "Je serai (ta meilleure amie)",
+      "artiste": "Lorie",
+      "annee": 2000,
+      "theme": "amitie"
+    },
+    {
+      "id": "toi-plus-moi",
+      "titre": "Toi + Moi",
+      "artiste": "Grégoire",
+      "annee": 2008,
+      "theme": "amitie"
+    },
+    {
+      "id": "derniere-danse",
+      "titre": "Dernière danse",
+      "artiste": "Kyo",
+      "annee": 2004,
+      "theme": "amours-incertaines"
+    },
+    {
+      "id": "dis-moi",
+      "titre": "Dis-moi",
+      "artiste": "BB Brunes",
+      "annee": 2007,
+      "theme": "amours-incertaines"
+    },
+    {
+      "id": "on-s-attache",
+      "titre": "On s'attache",
+      "artiste": "Christophe Maé",
+      "annee": 2007,
+      "theme": "doubles-lectures"
+    },
+    {
+      "id": "rue-de-la-paix",
+      "titre": "Rue de la paix",
+      "artiste": "Zazie",
+      "annee": 2001,
+      "theme": "doubles-lectures"
+    },
+    {
+      "id": "hey-oh",
+      "titre": "Hey Oh",
+      "artiste": "Tragédie",
+      "annee": 2003,
+      "theme": "rnb-francais"
+    },
+    {
+      "id": "parce-qu-on-vient-de-loin",
+      "titre": "Parce qu'on vient de loin",
+      "artiste": "Corneille",
+      "annee": 2002,
+      "theme": "rnb-francais"
     }
   ]
 }

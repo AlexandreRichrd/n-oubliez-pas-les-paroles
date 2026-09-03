@@ -1,0 +1,277 @@
+{
+  "id": "ma-philosophie",
+  "titre": "Ma philosophie",
+  "artiste": "Amel Bent",
+  "annee": 2005,
+  "theme": "La lune",
+  "audio": "/audio/ma-philosophie.mp3",
+  "lignes": [
+    {
+      "t": 0,
+      "texte": "",
+      "instrumental": true
+    },
+    {
+      "t": 19.4,
+      "texte": "Je n'ai qu'une philosophie"
+    },
+    {
+      "t": 22.3,
+      "texte": "Être acceptée comme je suis"
+    },
+    {
+      "t": 25,
+      "texte": "Malgré tout ce qu'on me dit"
+    },
+    {
+      "t": 27.1,
+      "texte": "Je reste le poing levé"
+    },
+    {
+      "t": 29.7,
+      "texte": "Pour le meilleur, comme le pire"
+    },
+    {
+      "t": 31.9,
+      "texte": "Je suis métisse, mais pas martyre"
+    },
+    {
+      "t": 34.4,
+      "texte": "J'avance le cœur léger"
+    },
+    {
+      "t": 36.4,
+      "texte": "Mais toujours, le poing levé"
+    },
+    {
+      "t": 38.8,
+      "texte": "Lever la tête, bomber le torse"
+    },
+    {
+      "t": 41.4,
+      "texte": "Sans cesse redoubler d'efforts"
+    },
+    {
+      "t": 43.5,
+      "texte": "La vie ne m'en laisse pas le choix"
+    },
+    {
+      "t": 46,
+      "texte": "Je suis l'as qui bat le roi"
+    },
+    {
+      "t": 48.4,
+      "texte": "Malgré nos peines, nos différences"
+    },
+    {
+      "t": 50.9,
+      "texte": "Et toutes ces injures incessantes"
+    },
+    {
+      "t": 53.3,
+      "texte": "Moi, je lèverai le poing"
+    },
+    {
+      "t": 55.7,
+      "texte": "Encore plus haut, encore plus loin"
+    },
+    {
+      "t": 57.9,
+      "texte": "Viser la Lune"
+    },
+    {
+      "t": 60.7,
+      "texte": "Ça me fait pas peur"
+    },
+    {
+      "t": 62.9,
+      "texte": "Même à l'usure"
+    },
+    {
+      "t": 65.2,
+      "texte": "J'y crois encore et en cœur"
+    },
+    {
+      "t": 67.8,
+      "texte": "Des sacrifices"
+    },
+    {
+      "t": 70.5,
+      "texte": "S'il le faut, j'en ferai"
+    },
+    {
+      "t": 72.7,
+      "texte": "J'en ai déjà fait"
+    },
+    {
+      "t": 74.8,
+      "texte": "Mais toujours, le poing levé"
+    },
+    {
+      "t": 77.5,
+      "texte": "Je ne suis pas comme toutes ces filles"
+    },
+    {
+      "t": 80.1,
+      "texte": "Qu'on dévisage, qu'on déshabille"
+    },
+    {
+      "t": 82.4,
+      "texte": "Moi, j'ai des formes et des rondeurs"
+    },
+    {
+      "t": 84.8,
+      "texte": "Ça sert à réchauffer les cœurs"
+    },
+    {
+      "t": 87.3,
+      "texte": "Fille d'un quartier populaire"
+    },
+    {
+      "t": 89.8,
+      "texte": "Qui a apprit à être fière"
+    },
+    {
+      "t": 92.1,
+      "texte": "Bien plus d'amour, que de misère"
+    },
+    {
+      "t": 94.5,
+      "texte": "Bien plus de cœur, que de pierre"
+    },
+    {
+      "t": 96.6,
+      "texte": "Je n'ai qu'une philosophie"
+    },
+    {
+      "t": 99,
+      "texte": "Être acceptée comme je suis"
+    },
+    {
+      "t": 101.6,
+      "texte": "Avec la force et le sourire"
+    },
+    {
+      "t": 103.8,
+      "texte": "Le poing levé vers l'avenir"
+    },
+    {
+      "t": 106.4,
+      "texte": "Lever la tête, bomber le torse"
+    },
+    {
+      "t": 108.6,
+      "texte": "Sans cesse redoubler d'efforts"
+    },
+    {
+      "t": 110.9,
+      "texte": "La vie ne m'en laisse pas le choix"
+    },
+    {
+      "t": 113.4,
+      "texte": "Je suis l'as qui bat le roi"
+    },
+    {
+      "t": 115.8,
+      "texte": "Viser la Lune",
+      "trou": true
+    },
+    {
+      "t": 118.5,
+      "texte": "Ça me fait pas peur"
+    },
+    {
+      "t": 120.8,
+      "texte": "Même à l'usure"
+    },
+    {
+      "t": 122.6,
+      "texte": "J'y crois encore et en cœur"
+    },
+    {
+      "t": 125.5,
+      "texte": "Des sacrifices"
+    },
+    {
+      "t": 128,
+      "texte": "S'il le faut, j'en ferai"
+    },
+    {
+      "t": 130.4,
+      "texte": "J'en ai déjà fait"
+    },
+    {
+      "t": 132.4,
+      "texte": "Mais toujours, le poing levé"
+    },
+    {
+      "t": 134.8,
+      "texte": "Viser la Lune"
+    },
+    {
+      "t": 137.6,
+      "texte": "Ça me fait pas peur"
+    },
+    {
+      "t": 139.8,
+      "texte": "Même à l'usure"
+    },
+    {
+      "t": 141.9,
+      "texte": "J'y crois encore et en cœur"
+    },
+    {
+      "t": 144.6,
+      "texte": "Des sacrifices"
+    },
+    {
+      "t": 147.2,
+      "texte": "S'il le faut, j'en ferai"
+    },
+    {
+      "t": 149.6,
+      "texte": "J'en ai déjà fait"
+    },
+    {
+      "t": 151.5,
+      "texte": "Mais toujours, le poing levé"
+    },
+    {
+      "t": 154.3,
+      "texte": "",
+      "instrumental": true
+    },
+    {
+      "t": 166.1,
+      "texte": "Viser la Lune"
+    },
+    {
+      "t": 169,
+      "texte": "Ça me fait pas peur"
+    },
+    {
+      "t": 171,
+      "texte": "Même à l'usure"
+    },
+    {
+      "t": 173.1,
+      "texte": "J'y crois encore et en cœur"
+    },
+    {
+      "t": 175.7,
+      "texte": "Des sacrifices"
+    },
+    {
+      "t": 178.3,
+      "texte": "S'il le faut, j'en ferai"
+    },
+    {
+      "t": 180.6,
+      "texte": "J'en ai déjà fait"
+    },
+    {
+      "t": 182.6,
+      "texte": "Mais toujours, le poing levé"
+    }
+  ]
+}

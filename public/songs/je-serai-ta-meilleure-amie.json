@@ -1,0 +1,256 @@
+{
+  "id": "je-serai-ta-meilleure-amie",
+  "titre": "Je serai (ta meilleure amie)",
+  "artiste": "Lorie",
+  "annee": 2000,
+  "theme": "Amitié",
+  "audio": "/audio/je-serai-ta-meilleure-amie.mp3",
+  "lignes": [
+    {
+      "t": 5,
+      "texte": "",
+      "instrumental": true
+    },
+    {
+      "t": 22.2,
+      "texte": "On se connait depuis"
+    },
+    {
+      "t": 24.8,
+      "texte": "Quelque temps"
+    },
+    {
+      "t": 26.8,
+      "texte": "Même si on se parlait"
+    },
+    {
+      "t": 28.9,
+      "texte": "Peu souvent"
+    },
+    {
+      "t": 30.6,
+      "texte": "C'est vrai, tu lis en moi"
+    },
+    {
+      "t": 32.7,
+      "texte": "Comme dans un livre ouvert"
+    },
+    {
+      "t": 34.9,
+      "texte": "Je te sens si fragile"
+    },
+    {
+      "t": 36.9,
+      "texte": "Le cœur à découvert"
+    },
+    {
+      "t": 39.3,
+      "texte": "J'ai envie qu'on se dise"
+    },
+    {
+      "t": 42.9,
+      "texte": "Tous nos moindres secrets"
+    },
+    {
+      "t": 45.3,
+      "texte": "Car je resterai, ta meilleure amie"
+    },
+    {
+      "t": 49.3,
+      "texte": "Je serai là , toujours pour toi"
+    },
+    {
+      "t": 53.7,
+      "texte": "N'importe où quand tu voudras"
+    },
+    {
+      "t": 57,
+      "texte": "Je serai, toujours la même"
+    },
+    {
+      "t": 60.3,
+      "texte": "Un peu bohème"
+    },
+    {
+      "t": 63,
+      "texte": "Prête à faire des folies"
+    },
+    {
+      "t": 65.9,
+      "texte": "Je serai, même si la vie"
+    },
+    {
+      "t": 69.2,
+      "texte": "Nous sépare"
+    },
+    {
+      "t": 76.6,
+      "texte": "Celle qui te redonnera l'espoir"
+    },
+    {
+      "t": 74.5,
+      "texte": "On ne laissera rien au hasard"
+    },
+    {
+      "t": 79.2,
+      "texte": "Car tu sais que je resterai"
+    },
+    {
+      "t": 82.5,
+      "texte": "Ta meilleure amie"
+    },
+    {
+      "t": 86.9,
+      "texte": "",
+      "instrumental": true
+    },
+    {
+      "t": 89.4,
+      "texte": "Et si des fois on se chamaille"
+    },
+    {
+      "t": 92.7,
+      "texte": "Pour un garçon ou pour un détail"
+    },
+    {
+      "t": 97.1,
+      "texte": "Et ça donne"
+    },
+    {
+      "t": 98.2,
+      "texte": "Tout pour toi, tout pour moi"
+    },
+    {
+      "t": 99.9,
+      "texte": "J'ai bien l'impression"
+    },
+    {
+      "t": 102,
+      "texte": "Qu'on se ressemble,"
+    },
+    {
+      "t": 103.9,
+      "texte": "On est bien ensemble"
+    },
+    {
+      "t": 105.9,
+      "texte": "J'ai envie qu'on se parle"
+    },
+    {
+      "t": 109,
+      "texte": "De tout et de rien"
+    },
+    {
+      "t": 112,
+      "texte": "Car je resterai"
+    },
+    {
+      "t": 113.9,
+      "texte": "Ta meilleure amie",
+      "trou": true
+    },
+    {
+      "t": 115.9,
+      "texte": "Je serai là , toujours pour toi",
+      "trou": true
+    },
+    {
+      "t": 118,
+      "texte": "N'importe où quand tu voudras"
+    },
+    {
+      "t": 123.7,
+      "texte": "Je serai, toujours la même"
+    },
+    {
+      "t": 127,
+      "texte": "Un peu bohème"
+    },
+    {
+      "t": 129.7,
+      "texte": "Prête à faire des folies"
+    },
+    {
+      "t": 146.2,
+      "texte": "Je serai, même si la vie"
+    },
+    {
+      "t": 135.9,
+      "texte": "Nous sépare"
+    },
+    {
+      "t": 137,
+      "texte": "Celle qui te redonnera l'espoir"
+    },
+    {
+      "t": 141.5,
+      "texte": "On ne laissera rien au hasard"
+    },
+    {
+      "t": 145.9,
+      "texte": "Car tu sais que je resterai"
+    },
+    {
+      "t": 149.4,
+      "texte": "Ta meilleure amie"
+    },
+    {
+      "t": 154.6,
+      "texte": "",
+      "instrumental": true
+    },
+    {
+      "t": 156.7,
+      "texte": "Ma meilleure amie"
+    },
+    {
+      "t": 161.2,
+      "texte": "",
+      "instrumental": true
+    },
+    {
+      "t": 167.7,
+      "texte": "Je serai là , toujours pour toi"
+    },
+    {
+      "t": 174,
+      "texte": "N'importe où quand tu voudras"
+    },
+    {
+      "t": 176.7,
+      "texte": "Je serai, toujours la même"
+    },
+    {
+      "t": 180.3,
+      "texte": "Un peu bohème"
+    },
+    {
+      "t": 183.1,
+      "texte": "Prête à faire des folies"
+    },
+    {
+      "t": 185.9,
+      "texte": "Je serai, même si la vie"
+    },
+    {
+      "t": 188.9,
+      "texte": "Nous sépare"
+    },
+    {
+      "t": 190.5,
+      "texte": "Celle qui te redonnera l'espoir"
+    },
+    {
+      "t": 195.7,
+      "texte": "On ne laissera rien au hasard"
+    },
+    {
+      "t": 199.3,
+      "texte": "Car tu sais que je resterai"
+    },
+    {
+      "t": 202.5,
+      "texte": "Ta meilleure amie"
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "id": "j-ai-demande-a-la-lune",
+  "titre": "J'ai demandé à la lune",
+  "artiste": "Indochine",
+  "annee": 2002,
+  "theme": "La lune",
+  "audio": "/audio/Jai-demandé-à-la-lune-Indochine.mp3",
+  "lignes": [
+    {
+      "t": 32.4,
+      "texte": "J'ai demandé à la lune"
+    },
+    {
+      "t": 38.8,
+      "texte": "Et le soleil ne le sait pas"
+    },
+    {
+      "t": 42.5,
+      "texte": "Je lui ai montré mes brûlures"
+    },
+    {
+      "t": 47.5,
+      "texte": "Et la lune s'est moquée de moi"
+    },
+    {
+      "t": 51.3,
+      "texte": "Et comme le ciel n'avait pas fière allure"
+    },
+    {
+      "t": 56.2,
+      "texte": "Et que je ne guérissais pas"
+    },
+    {
+      "t": 60.2,
+      "texte": "Je me suis dit \"quelle infortune\""
+    },
+    {
+      "t": 65.3,
+      "texte": "Et la lune s'est moquée de moi"
+    },
+    {
+      "t": 69.6,
+      "texte": "J'ai demandé à la lune"
+    },
+    {
+      "t": 74,
+      "texte": "Si tu voulais encore de moi"
+    },
+    {
+      "t": 77.6,
+      "texte": "Elle m'a dit \"j'ai pas l'habitude\""
+    },
+    {
+      "t": 82.6,
+      "texte": "\"De m'occuper des cas comme ça\""
+    },
+    {
+      "t": 86.2,
+      "texte": "Et toi et moi"
+    },
+    {
+      "t": 91.4,
+      "texte": "On était tellement sûrs"
+    },
+    {
+      "t": 92,
+      "texte": "Et on se disait quelquefois"
+    },
+    {
+      "t": 95.1,
+      "texte": "Que c'était juste une aventure"
+    },
+    {
+      "t": 104.8,
+      "texte": "Et que ça ne durerait pas"
+    },
+    {
+      "t": 105.5,
+      "texte": "Je n'ai pas grand chose à te dire"
+    },
+    {
+      "t": 109.3,
+      "texte": "Et pas grand chose pour te faire rire"
+    },
+    {
+      "t": 113.5,
+      "texte": "Car j'imagine toujours le pire"
+    },
+    {
+      "t": 117.8,
+      "texte": "Et le meilleur me fait souffrir"
+    },
+    {
+      "t": 122.5,
+      "texte": "J'ai demandé à la lune",
+      "trou": true
+    },
+    {
+      "t": 153,
+      "texte": "Si tu voulais encore de moi",
+      "trou": true
+    },
+    {
+      "t": 157.3,
+      "texte": "Elle m'a dit \"j'ai pas l'habitude\""
+    },
+    {
+      "t": 169.1,
+      "texte": "\"De m'occuper des cas comme ça\""
+    },
+    {
+      "t": 164.7,
+      "texte": "Et toi et moi"
+    },
+    {
+      "t": 166.6,
+      "texte": "On était tellement sûrs"
+    },
+    {
+      "t": 170.1,
+      "texte": "Et on se disait quelquefois"
+    },
+    {
+      "t": 174.3,
+      "texte": "Que c'était juste une aventure"
+    },
+    {
+      "t": 178.7,
+      "texte": "Et que ça ne durerait pas"
+    },
+    {
+      "t": 182.5,
+      "texte": "Ah, ah, ah"
+    }
+  ]
+}
