@@ -34,13 +34,15 @@ export function lignesJouees<T>(
 }
 
 /**
- * Remplace chaque mot par des underscores de même longueur, en laissant la
- * ponctuation extérieure visible : « Salut, toi ! » → « _____, ___ ! ».
- * La ponctuation interne d'un mot (apostrophe, trait d'union) est masquée avec
- * lui, sinon « l'amour » trahirait l'élision.
+ * Remplace chaque mot par son initiale suivie d'underscores, comme dans
+ * « N'oubliez pas les paroles » : « Salut, toi ! » → « S____, t__ ! ».
+ * La ponctuation extérieure reste visible. La ponctuation interne d'un mot
+ * (apostrophe, trait d'union) est masquée avec lui, sinon « l'amour »
+ * trahirait l'élision.
  */
 export function blanchirTexte(texte: string): string {
-  return texte.replace(/[\p{L}\p{N}][\p{L}\p{N}'’-]*/gu, (mot) =>
-    "_".repeat(mot.length),
+  return texte.replace(
+    /[\p{L}\p{N}][\p{L}\p{N}'’-]*/gu,
+    (mot) => mot[0] + "_".repeat(mot.length - 1),
   );
 }
