@@ -66,11 +66,15 @@ export default function Editeur() {
     brouillonInitial?.vitesseLecture ?? 1,
   );
   const [modeApercu, setModeApercu] = useState(false);
+  const [pauseSurTrou, setPauseSurTrou] = useState(false);
+  const [texteRevele, setTexteRevele] = useState(false);
   const [dureeAudio, setDureeAudio] = useState<number | null>(null);
 
   const audioUrlRef = useRef<string | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const entreeImportRef = useRef<HTMLInputElement | null>(null);
+  /** Trous déjà rencontrés dans cet aperçu — pour ne pas s'y arrêter deux fois. */
+  const trousApercuRef = useRef<Set<string>>(new Set());
 
   useEffect(() => {
     if (!idModifieManuel) setId(slugifier(titre));
@@ -157,11 +161,45 @@ export default function Editeur() {
       if (e.key === "Escape") {
         e.preventDefault();
         sortirApercu();
+      } else if (e.key === " ") {
+        e.preventDefault();
+        const audio = audioRef.current;
+        if (!audio) return;
+        if (audio.paused) {
+          void audio.play();
+          setPauseSurTrou(false);
+          setTexteRevele(false);
+        } else {
+          audio.pause();
+        }
+      } else if (e.key === "Enter") {
+        e.preventDefault();
+        // Ne sert qu'à vérifier le texte du trou avant de reprendre.
+        if (!pauseSurTrou) return;
+        setTexteRevele(true);
       }
     }
     window.addEventListener("keydown", surKeyDown);
     return () => window.removeEventListener("keydown", surKeyDown);
-  }, [modeApercu]);
+  }, [modeApercu, pauseSurTrou]);
+
+  // Aperçu : arrivée sur un trou, comme en jeu — la musique s'arrête pour de
+  // vrai, elle ne se contente pas d'afficher les blancs par-dessus.
+  useEffect(() => {
+    if (!modeApercu) {
+      trousApercuRef.current.clear();
+      return;
+    }
+    const audio = audioRef.current;
+    if (!audio || audio.paused) return;
+    const courante = lignesAffichees[lignesAffichees.length - 1];
+    if (!courante || !courante.trou) return;
+    if (trousApercuRef.current.has(courante.cle)) return;
+    trousApercuRef.current.add(courante.cle);
+    audio.pause();
+    setPauseSurTrou(true);
+    setTexteRevele(false);
+  }, [modeApercu, lignesAffichees]);
 
   useEffect(() => {
     if (!modeTap) return;
@@ -265,11 +303,16 @@ export default function Editeur() {
     setModeTap(false);
     audio.currentTime = 0;
     void audio.play();
+    trousApercuRef.current.clear();
+    setPauseSurTrou(false);
+    setTexteRevele(false);
     setModeApercu(true);
   }
 
   function sortirApercu() {
     setModeApercu(false);
+    setPauseSurTrou(false);
+    setTexteRevele(false);
     audioRef.current?.pause();
   }
 
@@ -1039,13 +1082,24 @@ export default function Editeur() {
                 );
               }
               return (
-                <p className="text-4xl font-bold text-white">
-                  {courante.trou
+                <p
+                  className={
+                    courante.trou && texteRevele
+                      ? "text-4xl font-bold text-emerald-400"
+                      : "text-4xl font-bold text-white"
+                  }
+                >
+                  {courante.trou && !texteRevele
                     ? blanchirTexte(courante.texte)
                     : courante.texte}
                 </p>
               );
             })()}
+            {pauseSurTrou && (
+              <p className="text-sm font-semibold tracking-wide text-amber-300 uppercase">
+                Trou — Entrée pour révéler · Espace pour reprendre
+              </p>
+            )}
           </div>
         </div>
       )}
