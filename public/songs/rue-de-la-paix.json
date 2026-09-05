@@ -1,0 +1,220 @@
+{
+  "id": "rue-de-la-paix",
+  "titre": "Rue de la paix",
+  "artiste": "Zazie",
+  "annee": 2001,
+  "theme": "Doubles lectures",
+  "audio": "/audio/rue-de-la-paix.mp3",
+  "lignes": [
+    {
+      "t": 7.3,
+      "texte": "Je vends mon auto puisque je roule trop vite"
+    },
+    {
+      "t": 10.7,
+      "texte": "Et que ça me fait peur"
+    },
+    {
+      "t": 14.8,
+      "texte": "Je vends mon magot puisque tant de réussite"
+    },
+    {
+      "t": 18.2,
+      "texte": "Ne fait pas mon bonheur"
+    },
+    {
+      "t": 22.5,
+      "texte": "Je vends mes charmes et mes armes"
+    },
+    {
+      "t": 25,
+      "texte": "Ma violence et ma douceur"
+    },
+    {
+      "t": 29.8,
+      "texte": "Je sauve ma peau, vends mon âme au diable"
+    },
+    {
+      "t": 37.6,
+      "texte": "Je vends mon usine avant que l'oxygène"
+    },
+    {
+      "t": 40.4,
+      "texte": "Ne vienne à nous manquer"
+    },
+    {
+      "t": 45.2,
+      "texte": "Je vends ma gazoline avant que la mer ne vienne"
+    },
+    {
+      "t": 48.5,
+      "texte": "Mourir à nos pieds"
+    },
+    {
+      "t": 52.4,
+      "texte": "Je sauve la peau de l'ours avant de l'avoir tué"
+    },
+    {
+      "t": 59.9,
+      "texte": "Je sauve les meubles et vends la maison"
+    },
+    {
+      "t": 67.5,
+      "texte": "Pour mettre un hôtel, rue de la paix"
+    },
+    {
+      "t": 71.2,
+      "texte": "Pour mettre un hôtel, rue de la paix"
+    },
+    {
+      "t": 74.8,
+      "texte": "Un monde où tout le monde s'aimerait"
+    },
+    {
+      "t": 78.5,
+      "texte": "Enfin"
+    },
+    {
+      "t": 82.3,
+      "texte": "J'achète un château en Espagne"
+    },
+    {
+      "t": 85.9,
+      "texte": "J'achète un château en Espagne"
+    },
+    {
+      "t": 90,
+      "texte": "J'achète un monde où tout le monde gagne"
+    },
+    {
+      "t": 93.2,
+      "texte": "À la fin"
+    },
+    {
+      "t": 98.1,
+      "texte": "Je vends ma carte chance et je puise dans la caisse"
+    },
+    {
+      "t": 101.5,
+      "texte": "On a bien mérité"
+    },
+    {
+      "t": 105.6,
+      "texte": "De toucher une avance si c'est pour rendre la caisse"
+    },
+    {
+      "t": 109,
+      "texte": "À la communauté"
+    },
+    {
+      "t": 113.2,
+      "texte": "Je passe à l'action quitte à monopoliser l'attention"
+    },
+    {
+      "t": 120.6,
+      "texte": "Et rester quelques tours en prison"
+    },
+    {
+      "t": 128,
+      "texte": "Pour mettre un hôtel, rue de la paix"
+    },
+    {
+      "t": 131.8,
+      "texte": "Pour mettre un hôtel, rue de la paix"
+    },
+    {
+      "t": 135.2,
+      "texte": "Un monde où tout le monde s'aimerait"
+    },
+    {
+      "t": 138.8,
+      "texte": "Enfin"
+    },
+    {
+      "t": 142.8,
+      "texte": "J'achète un château en Espagne"
+    },
+    {
+      "t": 146.4,
+      "texte": "J'achète un château en Espagne"
+    },
+    {
+      "t": 150.2,
+      "texte": "J'achète un monde où tout le monde gagne",
+      "trou": true
+    },
+    {
+      "t": 153.8,
+      "texte": "À la fin"
+    },
+    {
+      "t": 158.7,
+      "texte": "Je vends tout ce que j'ai contre tout ce qui me manque"
+    },
+    {
+      "t": 166.4,
+      "texte": "Je vends ce qui s'achète contre ce qui n'a pas de prix"
+    },
+    {
+      "t": 173.8,
+      "texte": "Et je vends ce que je vaux contre ce qui m'est le plus cher"
+    },
+    {
+      "t": 181.2,
+      "texte": "Et si ça ne vaut pas un clou tant pis, je donnerai tout"
+    },
+    {
+      "t": 188.1,
+      "texte": "Pour mettre un hôtel, rue de la paix"
+    },
+    {
+      "t": 192.2,
+      "texte": "Pour mettre un hôtel, rue de la paix"
+    },
+    {
+      "t": 196.2,
+      "texte": "Un monde où tout le monde s'aimerait"
+    },
+    {
+      "t": 199.5,
+      "texte": "Enfin"
+    },
+    {
+      "t": 203.4,
+      "texte": "J'achète un château en Espagne"
+    },
+    {
+      "t": 207.1,
+      "texte": "J'achète un château en Espagne"
+    },
+    {
+      "t": 211.1,
+      "texte": "J'achète un monde où tout le monde gagne"
+    },
+    {
+      "t": 214.6,
+      "texte": "À la fin"
+    },
+    {
+      "t": 220.5,
+      "texte": "",
+      "instrumental": true
+    },
+    {
+      "t": 226.7,
+      "texte": "Un hôtel rue de la paix"
+    },
+    {
+      "t": 230.5,
+      "texte": "Un château en Espagne"
+    },
+    {
+      "t": 241.5,
+      "texte": "J'achète un château en Espagne"
+    },
+    {
+      "t": 249.1,
+      "texte": "J'achète un monde où tout le monde gagne"
+    }
+  ]
+}

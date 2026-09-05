@@ -1,0 +1,156 @@
+{
+  "id": "dis-moi",
+  "titre": "Dis moi",
+  "artiste": "B.B. Brunes",
+  "annee": 2007,
+  "theme": "Amour",
+  "audio": "/audio/dis-moi.mp3",
+  "lignes": [
+    {
+      "t": 3.3,
+      "texte": "Une légère envie de violence quand elle relace ses bas"
+    },
+    {
+      "t": 6.9,
+      "texte": "Je ne suis plus à vendre, Houna je ne suis plus comme ça"
+    },
+    {
+      "t": 11,
+      "texte": "Des rumeurs adolescentes disent que je ne suis pas"
+    },
+    {
+      "t": 14.7,
+      "texte": "À toi et je pense qu'une part de vrai se cache"
+    },
+    {
+      "t": 18.9,
+      "texte": "Dis-moi si je dois partir ou pas"
+    },
+    {
+      "t": 22.4,
+      "texte": "Dis-moi hou hou"
+    },
+    {
+      "t": 26.1,
+      "texte": "Dis-moi si tu aimes ça Houna"
+    },
+    {
+      "t": 29.4,
+      "texte": "Car je suis fou de toi Houna"
+    },
+    {
+      "t": 32.5,
+      "texte": "Quand tu ne m'appartiens pas"
+    },
+    {
+      "t": 36.3,
+      "texte": "Une violente envie de descente lorsque t'embrasse ces gars"
+    },
+    {
+      "t": 40.6,
+      "texte": "Je ne ferai point l'enfant tout ça ne m'atteint pas"
+    },
+    {
+      "t": 44.2,
+      "texte": "Des rumeurs adolescentes disent que je ne suis pas"
+    },
+    {
+      "t": 47.7,
+      "texte": "Un homme à femmes et rien d'autre qu'un homme à toi"
+    },
+    {
+      "t": 51.6,
+      "texte": "Dis-moi si je dois partir ou pas",
+      "trou": true
+    },
+    {
+      "t": 55.1,
+      "texte": "Dis-moi hou hou"
+    },
+    {
+      "t": 59,
+      "texte": "Dis-moi si tu aimes ça Houna"
+    },
+    {
+      "t": 62.6,
+      "texte": "Car je suis fou de toi Houna"
+    },
+    {
+      "t": 65.3,
+      "texte": "Quand tu ne m'appartiens pas"
+    },
+    {
+      "t": 67.2,
+      "texte": "",
+      "instrumental": true
+    },
+    {
+      "t": 95.5,
+      "texte": "Quand tu me mords où ça dérange"
+    },
+    {
+      "t": 97.6,
+      "texte": "Et tu m'attaches les bras"
+    },
+    {
+      "t": 100,
+      "texte": "Quand je fais sautiller sa frange"
+    },
+    {
+      "t": 101.4,
+      "texte": "Ses cris se tirent dans les graves"
+    },
+    {
+      "t": 103.5,
+      "texte": "Les voyeurs en redemandent"
+    },
+    {
+      "t": 105.2,
+      "texte": "Moi je ne veux que Houna"
+    },
+    {
+      "t": 107.3,
+      "texte": "La plus belle des plus belles jambes"
+    },
+    {
+      "t": 109,
+      "texte": "Et de la place pour trois"
+    },
+    {
+      "t": 111.2,
+      "texte": "Dis-moi si je dois partir ou pas"
+    },
+    {
+      "t": 114.9,
+      "texte": "Dis-moi hou hou"
+    },
+    {
+      "t": 118.4,
+      "texte": "Dis-moi si tu aimes ça Houna"
+    },
+    {
+      "t": 122.3,
+      "texte": "Dis-moi hou hou"
+    },
+    {
+      "t": 126.1,
+      "texte": "Dis-moi non je ne craquerai pas"
+    },
+    {
+      "t": 129.7,
+      "texte": "Dis-moi hou hou"
+    },
+    {
+      "t": 133.4,
+      "texte": "Dis-moi si tu aimes ça Houna"
+    },
+    {
+      "t": 136.9,
+      "texte": "Car je suis fou de toi Houna"
+    },
+    {
+      "t": 139.5,
+      "texte": "Quand tu ne m'appartiens pas"
+    }
+  ]
+}

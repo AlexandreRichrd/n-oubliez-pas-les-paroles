@@ -1,0 +1,198 @@
+{
+  "id": "lola",
+  "titre": "Lola",
+  "artiste": "Superbus",
+  "annee": 2006,
+  "theme": "Prénoms",
+  "audio": "/audio/lola.mp3",
+  "lignes": [
+    {
+      "t": 0.2,
+      "texte": "Allo Lola, c'est encore moi"
+    },
+    {
+      "t": 4.3,
+      "texte": "J'ai beaucoup pensé à toi, Lola"
+    },
+    {
+      "t": 8.2,
+      "texte": "Allo Lola, ne raccroche pas"
+    },
+    {
+      "t": 12.1,
+      "texte": "Ne mets pas de holà, Lola, oh là"
+    },
+    {
+      "t": 16.2,
+      "texte": "",
+      "instrumental": true
+    },
+    {
+      "t": 19.6,
+      "texte": "Allo Lola, comme un garçon"
+    },
+    {
+      "t": 23.8,
+      "texte": "J'ai le cœur qui fait boom et les cheveux longs"
+    },
+    {
+      "t": 27.4,
+      "texte": "Allo Lola, comme un garçon"
+    },
+    {
+      "t": 31.4,
+      "texte": "C'est la première fois pour moi que tes yeux me font"
+    },
+    {
+      "t": 35.1,
+      "texte": "Boom-boom-boom-boom"
+    },
+    {
+      "t": 37.1,
+      "texte": "Boom-boom-boom-boom, boom"
+    },
+    {
+      "t": 39.8,
+      "texte": "Oh là, Lola sait"
+    },
+    {
+      "t": 42.9,
+      "texte": "Boom-boom-boom-boom"
+    },
+    {
+      "t": 44.9,
+      "texte": "Boom-boom-boom-boom, boom"
+    },
+    {
+      "t": 47.8,
+      "texte": "Lola, c'est osé"
+    },
+    {
+      "t": 50.4,
+      "texte": "Allo Lola, oui, c'est bien moi"
+    },
+    {
+      "t": 54.8,
+      "texte": "Je n'ai pas dormi pour toi"
+    },
+    {
+      "t": 56.8,
+      "texte": "Je n'en reviens pas"
+    },
+    {
+      "t": 58.3,
+      "texte": "Allo Lola ne raccroche pas"
+    },
+    {
+      "t": 62.2,
+      "texte": "Lola lit dans l'au-delà, ma jolie Lola"
+    },
+    {
+      "t": 66.1,
+      "texte": "Allo, Lola, comme un garçon",
+      "trou": true
+    },
+    {
+      "t": 70,
+      "texte": "J'ai le cœur qui fait boom et les cheveux longs"
+    },
+    {
+      "t": 73.8,
+      "texte": "Allo, Lola, comme un garçon"
+    },
+    {
+      "t": 77.8,
+      "texte": "C'est la première fois pour moi que tes yeux me font"
+    },
+    {
+      "t": 81.5,
+      "texte": "Boom-boom-boom-boom"
+    },
+    {
+      "t": 83.6,
+      "texte": "Boom-boom-boom-boom, boom"
+    },
+    {
+      "t": 86.4,
+      "texte": "Oh là, Lola sait"
+    },
+    {
+      "t": 89.5,
+      "texte": "Boom-boom-boom-boom"
+    },
+    {
+      "t": 91.3,
+      "texte": "Boom-boom-boom-boom, boom"
+    },
+    {
+      "t": 93.9,
+      "texte": "Lola, c'est osé"
+    },
+    {
+      "t": 96.6,
+      "texte": "",
+      "instrumental": true
+    },
+    {
+      "t": 112.1,
+      "texte": "Allo Lola, comme un garçon (garçon)"
+    },
+    {
+      "t": 120.1,
+      "texte": "Allo Lola, comme un garçon (garçon)"
+    },
+    {
+      "t": 128.1,
+      "texte": "Boom-boom-boom-boom"
+    },
+    {
+      "t": 130,
+      "texte": "Boom-boom-boom-boom, boom"
+    },
+    {
+      "t": 132.7,
+      "texte": "Oh là, Lola sait"
+    },
+    {
+      "t": 135.9,
+      "texte": "Boom-boom-boom-boom"
+    },
+    {
+      "t": 137.8,
+      "texte": "Boom-boom-boom-boom, boom"
+    },
+    {
+      "t": 140.4,
+      "texte": "Lola, c'est osé"
+    },
+    {
+      "t": 143.5,
+      "texte": "Boom-boom-boom-boom"
+    },
+    {
+      "t": 145.6,
+      "texte": "Boom-boom-boom-boom, boom"
+    },
+    {
+      "t": 148.1,
+      "texte": "Oh là, Lola sait"
+    },
+    {
+      "t": 151.2,
+      "texte": "Boom-boom-boom-boom"
+    },
+    {
+      "t": 153.2,
+      "texte": "Boom-boom-boom-boom, boom"
+    },
+    {
+      "t": 156,
+      "texte": "Lola, c'est osé"
+    },
+    {
+      "t": 159.1,
+      "texte": "",
+      "instrumental": true
+    }
+  ]
+}

@@ -1,0 +1,271 @@
+{
+  "id": "parce-qu-on-vient-de-loin",
+  "titre": "PArce qu'on vient de loin",
+  "artiste": "Corneille",
+  "annee": 2002,
+  "theme": "rnb-francais",
+  "audio": "/audio/parce-qu-on-vient-de-loin.mp3",
+  "lignes": [
+    {
+      "t": 9.8,
+      "texte": "Nous sommes nos propres pères"
+    },
+    {
+      "t": 12.3,
+      "texte": "Si jeunes et pourtant si vieux"
+    },
+    {
+      "t": 14.6,
+      "texte": "Ça m'fait penser, tu sais"
+    },
+    {
+      "t": 20.3,
+      "texte": "Nous sommes nos propres mères"
+    },
+    {
+      "t": 22.9,
+      "texte": "Si jeunes et si sérieux, mais ça va changer"
+    },
+    {
+      "t": 27.5,
+      "texte": "Oh wo, wo, oh"
+    },
+    {
+      "t": 31.2,
+      "texte": "On passe le temps"
+    },
+    {
+      "t": 33.6,
+      "texte": "À faire des plans pour le lendemain"
+    },
+    {
+      "t": 35.7,
+      "texte": "Pendant que le beau temps"
+    },
+    {
+      "t": 38.7,
+      "texte": "Passe et nous laisse vides et incertains"
+    },
+    {
+      "t": 41.7,
+      "texte": "On perd trop de temps"
+    },
+    {
+      "t": 43.9,
+      "texte": "À suer et s'écorcher les mains"
+    },
+    {
+      "t": 46.3,
+      "texte": "À quoi ça sert si on n'est pas sûrs de voir demain ?"
+    },
+    {
+      "t": 50.3,
+      "texte": "À rien"
+    },
+    {
+      "t": 51.7,
+      "texte": "Alors on vit chaque jour comme le dernier (Pa-la-pa-pa)"
+    },
+    {
+      "t": 56.8,
+      "texte": "Et vous feriez pareil si seulement vous saviez (Pa-la-pa-pa)"
+    },
+    {
+      "t": 61.7,
+      "texte": "Combien de fois la fin du monde nous a frôlés (Oh)"
+    },
+    {
+      "t": 66.8,
+      "texte": "Alors on vit chaque jour comme le dernier",
+      "trou": true
+    },
+    {
+      "t": 71.4,
+      "texte": "Parce qu'on vient de loin"
+    },
+    {
+      "t": 73.1,
+      "texte": "Pa-la-la ooh, pa-la-la ooh, pa-lam-pam-pam"
+    },
+    {
+      "t": 77.9,
+      "texte": "Pa-la-la ooh, pa-la-la ooh, pa-lam-pam-pam"
+    },
+    {
+      "t": 83,
+      "texte": "Et quand les temps sont durs"
+    },
+    {
+      "t": 85.4,
+      "texte": "On se dit : \"Pire que notre histoire n'existe pas\""
+    },
+    {
+      "t": 92.6,
+      "texte": "Et quand l'hiver perdure"
+    },
+    {
+      "t": 95.7,
+      "texte": "On se dit simplement que la chaleur nous reviendra"
+    },
+    {
+      "t": 100.8,
+      "texte": "Et c'est facile comme ça, oh wow"
+    },
+    {
+      "t": 104.2,
+      "texte": "Jour après jour"
+    },
+    {
+      "t": 106.4,
+      "texte": "On voit combien tout est éphémère"
+    },
+    {
+      "t": 108.4,
+      "texte": "Alors même en amour"
+    },
+    {
+      "t": 111.6,
+      "texte": "J'aimerai chaque reine comme si c'était la dernière"
+    },
+    {
+      "t": 114.7,
+      "texte": "L'air est trop lourd"
+    },
+    {
+      "t": 116.9,
+      "texte": "Quand on ne vit que sur des prières"
+    },
+    {
+      "t": 119.4,
+      "texte": "Moi je savoure chaque instant"
+    },
+    {
+      "t": 121.2,
+      "texte": "Bien avant que s'éteigne la lumière, oh wow wow !"
+    },
+    {
+      "t": 124.4,
+      "texte": "Alors on vit chaque jour comme le dernier (Pa-la-pa-pa)"
+    },
+    {
+      "t": 129.6,
+      "texte": "Et vous feriez pareil si seulement vous saviez (Pa-la-pa-pa)"
+    },
+    {
+      "t": 134.9,
+      "texte": "Combien de fois la fin du monde nous a frôlés (Oh)"
+    },
+    {
+      "t": 140,
+      "texte": "Alors on vit chaque jour comme le dernier"
+    },
+    {
+      "t": 144,
+      "texte": "Parce qu'on vient de loin"
+    },
+    {
+      "t": 152.4,
+      "texte": "Qu'on vient de loin, parce qu'on vient de loin, mmh"
+    },
+    {
+      "t": 156.3,
+      "texte": "Jour après jour"
+    },
+    {
+      "t": 158.7,
+      "texte": "On voit combien tout est éphémère"
+    },
+    {
+      "t": 161.1,
+      "texte": "Alors vivons pendant qu'on peut encore le faire"
+    },
+    {
+      "t": 164.8,
+      "texte": "Mes chers"
+    },
+    {
+      "t": 166,
+      "texte": "Alors on vit chaque jour comme le dernier (Pa-la-pa-pa)"
+    },
+    {
+      "t": 170.1,
+      "texte": "(Chaque jour, chaque moment)"
+    },
+    {
+      "t": 172,
+      "texte": "Et vous feriez pareil si seulement vous saviez (Pa-la-pa-pa)"
+    },
+    {
+      "t": 175.7,
+      "texte": "(Si seulement vous saviez)"
+    },
+    {
+      "t": 176.8,
+      "texte": "Combien de fois la fin du monde nous a frôlés (Oh) (Oh, woo)"
+    },
+    {
+      "t": 181.6,
+      "texte": "Alors on vit chaque jour comme le dernier (Oh)"
+    },
+    {
+      "t": 186.2,
+      "texte": "Parce qu'on vient de loin"
+    },
+    {
+      "t": 187.7,
+      "texte": "Alors on vit chaque jour comme le dernier (Pa-la-pa-pa)"
+    },
+    {
+      "t": 191.2,
+      "texte": "(Chaque jour)"
+    },
+    {
+      "t": 192.5,
+      "texte": "Et vous feriez pareil si seulement vous saviez (Pa-la-pa-pa) (Chaque jour comme le dernier, oh)"
+    },
+    {
+      "t": 197,
+      "texte": "Combien de fois la fin du monde nous a frôlés (Oh)"
+    },
+    {
+      "t": 202,
+      "texte": "(Combien de fois la fin nous a frôlés)"
+    },
+    {
+      "t": 202.9,
+      "texte": "Alors on vit chaque jour comme le dernier"
+    },
+    {
+      "t": 206.2,
+      "texte": "(Ooh, alors on vit chaque jour comme le dernier)"
+    },
+    {
+      "t": 207.6,
+      "texte": "Parce qu'on vient de loin"
+    },
+    {
+      "t": 208.4,
+      "texte": "Parce qu'on vient de loin, parce qu'on vient de loin, mmh (Pa-la-pa-pa)"
+    },
+    {
+      "t": 212.4,
+      "texte": "Parce qu'on vient de loin"
+    },
+    {
+      "t": 214.3,
+      "texte": "Parce qu'on vient de loin, parce qu'on vient de loin (Pa-la-pa-pa)"
+    },
+    {
+      "t": 218.1,
+      "texte": "Parce qu'on vient de loin (Oh)"
+    },
+    {
+      "t": 222.6,
+      "texte": "Parce qu'on vient de loin"
+    },
+    {
+      "t": 227.9,
+      "texte": "Parce qu'on vient de loin"
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "id": "toi-moi",
+  "titre": "Toi + Moi",
+  "artiste": "Grégoire",
+  "annee": 2008,
+  "theme": "Amitié",
+  "audio": "/audio/toi-moi.mp3",
+  "lignes": [
+    {
+      "t": 0,
+      "texte": "",
+      "instrumental": true
+    },
+    {
+      "t": 8,
+      "texte": "Toi plus moi, plus eux plus tous ceux qui le veulent,"
+    },
+    {
+      "t": 12.8,
+      "texte": "Plus lui plus elle et tous ceux qui sont seuls"
+    },
+    {
+      "t": 16.3,
+      "texte": "Allez venez et entrez dans la danse"
+    },
+    {
+      "t": 20,
+      "texte": "Allez venez, laissez faire l'insouciance"
+    },
+    {
+      "t": 23.2,
+      "texte": "A deux, à mille, je sais qu'on est capable"
+    },
+    {
+      "t": 27.1,
+      "texte": "Tout est possible tout est réalisable"
+    },
+    {
+      "t": 30.9,
+      "texte": "On peut s'enfuir bien plus haut que nos rêves"
+    },
+    {
+      "t": 34.4,
+      "texte": "On peut partir bien plus loin que la grève"
+    },
+    {
+      "t": 38.1,
+      "texte": "Oh toi plus moi, plus tous ceux qui le veulent,"
+    },
+    {
+      "t": 41.8,
+      "texte": "Plus lui plus elle plus tous ceux qui sont seuls"
+    },
+    {
+      "t": 46.1,
+      "texte": "Allez venez et entrez dans la danse"
+    },
+    {
+      "t": 49.6,
+      "texte": "Allez venez c'est notre jour de chance"
+    },
+    {
+      "t": 53.3,
+      "texte": "Avec l'envie la force et le courage"
+    },
+    {
+      "t": 56.6,
+      "texte": "Le froid la peur ne sont que des mirages"
+    },
+    {
+      "t": 61,
+      "texte": "Laissez tomber les malheurs pour une fois"
+    },
+    {
+      "t": 64.1,
+      "texte": "Allez venez, reprenez avec moi"
+    },
+    {
+      "t": 67.9,
+      "texte": "Oh, toi plus moi, plus tous ceux qui le veulent,"
+    },
+    {
+      "t": 71.3,
+      "texte": "Plus lui plus elle et tous ceux qui sont seuls"
+    },
+    {
+      "t": 75.2,
+      "texte": "Allez venez et entrez dans la danse"
+    },
+    {
+      "t": 78.8,
+      "texte": "Allez venez laissez faire l'insouciance"
+    },
+    {
+      "t": 82.5,
+      "texte": "Je sais c'est vrai ma chanson est naïve"
+    },
+    {
+      "t": 86.3,
+      "texte": "Même un peu bête , mais bien inoffensive"
+    },
+    {
+      "t": 90.1,
+      "texte": "Et même si elle ne change pas le monde"
+    },
+    {
+      "t": 93.9,
+      "texte": "Elle vous invite a entrer dans la ronde"
+    },
+    {
+      "t": 97.5,
+      "texte": "Oh toi plus moi plus tous ceux qui le veulent"
+    },
+    {
+      "t": 100.9,
+      "texte": "Plus lui plus elle et tous ceux qui sont seuls"
+    },
+    {
+      "t": 104.9,
+      "texte": "Allez venez et entrez dans la danse"
+    },
+    {
+      "t": 108.3,
+      "texte": "Allez venez c'est notre jour de chance"
+    },
+    {
+      "t": 111.9,
+      "texte": "L'espoir l'ardeur, prends tout ce qu'il te faut"
+    },
+    {
+      "t": 115.4,
+      "texte": "Mes bras mon cœur mes épaules et mon dos"
+    },
+    {
+      "t": 119.3,
+      "texte": "Je veux te voir des étoiles dans les yeux"
+    },
+    {
+      "t": 122.9,
+      "texte": "Je veux nous voir insoumis et heureux"
+    },
+    {
+      "t": 126.8,
+      "texte": "Oh toi plus moi plus tous ceux qui le veulent"
+    },
+    {
+      "t": 130.3,
+      "texte": "Plus lui plus elle et tous ceux qui sont seuls",
+      "trou": true
+    },
+    {
+      "t": 134.3,
+      "texte": "Allez venez et entrez dans la danse"
+    },
+    {
+      "t": 137.9,
+      "texte": "Allez venez, laissez faire l'insouciance"
+    },
+    {
+      "t": 141.9,
+      "texte": "Oh toi plus moi plus tous ceux qui le veulent"
+    },
+    {
+      "t": 145.3,
+      "texte": "Plus lui plus elle et tous ceux qui sont seuls"
+    },
+    {
+      "t": 148.9,
+      "texte": "Allez venez et entrez dans la danse"
+    },
+    {
+      "t": 152.5,
+      "texte": "Allez venez c'est notre jour de chance"
+    },
+    {
+      "t": 156.2,
+      "texte": "Oh toi plus moi plus tous ceux qui le veulent"
+    },
+    {
+      "t": 159.8,
+      "texte": "Plus lui plus elle et tous ceux qui sont seuls"
+    },
+    {
+      "t": 163.8,
+      "texte": "Allez venez et entrez dans la danse"
+    },
+    {
+      "t": 167.4,
+      "texte": "Allez venez et entrez dans la danse"
+    }
+  ]
+}

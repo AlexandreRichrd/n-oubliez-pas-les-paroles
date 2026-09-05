@@ -1,0 +1,294 @@
+{
+  "id": "hey-oh",
+  "titre": "Hey Oh",
+  "artiste": "Tragédie",
+  "theme": "rnb-francais",
+  "audio": "/audio/hey-oh.mp3",
+  "lignes": [
+    {
+      "t": 0.7,
+      "texte": "Oh, yeah, yeah"
+    },
+    {
+      "t": 3.5,
+      "texte": "Ouh, ouh, ouh"
+    },
+    {
+      "t": 6.5,
+      "texte": "Tragédie"
+    },
+    {
+      "t": 8.7,
+      "texte": "Hot Vibes baby"
+    },
+    {
+      "t": 9.3,
+      "texte": "Oh, oh, oh, oh, oh"
+    },
+    {
+      "t": 13.2,
+      "texte": "Oh, oh, oh, oh, oh"
+    },
+    {
+      "t": 15.2,
+      "texte": "Oh, oh, oh, oh"
+    },
+    {
+      "t": 18.3,
+      "texte": "Oh, oh, oh, oh, oh"
+    },
+    {
+      "t": 20.6,
+      "texte": "Est-ce que tu m'entends? (hey oh)"
+    },
+    {
+      "t": 23,
+      "texte": "Est-ce que tu me sens? (hey oh)"
+    },
+    {
+      "t": 25.6,
+      "texte": "Touche-moi je suis là (hey oh)"
+    },
+    {
+      "t": 27.7,
+      "texte": "Oh, oh, oh, oh, oh, oh, oh"
+    },
+    {
+      "t": 30.1,
+      "texte": "S'il-te-plaît, réponds-moi (hey oh)"
+    },
+    {
+      "t": 33,
+      "texte": "Un geste suffira (hey oh)"
+    },
+    {
+      "t": 35.6,
+      "texte": "Est-ce que tu m'aperçois? (hey oh)"
+    },
+    {
+      "t": 38,
+      "texte": "Oh, oh, oh, oh, oh, oh, oh"
+    },
+    {
+      "t": 40.7,
+      "texte": "Ça fait longtemps, qu'en bas de ta fenêtre"
+    },
+    {
+      "t": 45.6,
+      "texte": "J'appelle vainement mais personne ne répond"
+    },
+    {
+      "t": 50.4,
+      "texte": "Fais juste un signe pour montrer que t'es là"
+    },
+    {
+      "t": 57.1,
+      "texte": "Oh, yeah (oh, oh, oh, oh, oh)"
+    },
+    {
+      "t": 61,
+      "texte": "Déjà deux heures qu'en bas de chez toi"
+    },
+    {
+      "t": 65.9,
+      "texte": "Je crie ton nom mais personne n'm'entend"
+    },
+    {
+      "t": 68.9,
+      "texte": "Juste un signe suffira"
+    },
+    {
+      "t": 71,
+      "texte": "Baisse la tête, oh"
+    },
+    {
+      "t": 74.6,
+      "texte": "Regarde qui est là"
+    },
+    {
+      "t": 77.4,
+      "texte": "Oh, oh, oh, oh"
+    },
+    {
+      "t": 81,
+      "texte": "Est-ce que tu m'entends? (hey oh)",
+      "trou": true
+    },
+    {
+      "t": 83.6,
+      "texte": "Est-ce que tu me sens? (hey oh)"
+    },
+    {
+      "t": 86,
+      "texte": "Touche-moi je suis là (hey oh)"
+    },
+    {
+      "t": 88.5,
+      "texte": "Oh, oh, oh, oh, oh, oh, oh"
+    },
+    {
+      "t": 91.2,
+      "texte": "S'il-te-plaît, réponds-moi (hey oh)"
+    },
+    {
+      "t": 93.6,
+      "texte": "Un geste suffira (hey oh)"
+    },
+    {
+      "t": 96.1,
+      "texte": "Est-ce que tu m'aperçois? (hey oh)"
+    },
+    {
+      "t": 98.4,
+      "texte": "Oh, oh, oh, oh, oh, oh, oh"
+    },
+    {
+      "t": 101.4,
+      "texte": "Je sais que t'es là, mais tu n'entends pas"
+    },
+    {
+      "t": 106,
+      "texte": "Qu'en bas de chez toi, je t'appelle et tu ne réponds pas"
+    },
+    {
+      "t": 111.5,
+      "texte": "Je sais que t'es là, mais tu n'entends pas"
+    },
+    {
+      "t": 116.4,
+      "texte": "Qu'en bas de chez toi, je t'appelle et tu ne réponds pas"
+    },
+    {
+      "t": 121,
+      "texte": "Est-ce que tu m'entends?"
+    },
+    {
+      "t": 123.3,
+      "texte": "Est-ce que tu me sens?"
+    },
+    {
+      "t": 124.7,
+      "texte": "Un geste suffira, s'il-te-plaît réponds-moi"
+    },
+    {
+      "t": 128.1,
+      "texte": "Est-ce que tu m'aperçois?"
+    },
+    {
+      "t": 130.2,
+      "texte": "Car en bas de chez toi, je fais les cent pas"
+    },
+    {
+      "t": 133.3,
+      "texte": "Est-ce que tu me vois?"
+    },
+    {
+      "t": 135.4,
+      "texte": "Dis-le moi"
+    },
+    {
+      "t": 138.6,
+      "texte": "Ah, ah, ah"
+    },
+    {
+      "t": 141.9,
+      "texte": "Est-ce que tu m'entends? (hey oh)"
+    },
+    {
+      "t": 144.2,
+      "texte": "Est-ce que tu me sens? (hey oh)"
+    },
+    {
+      "t": 146.7,
+      "texte": "Touche-moi je suis là (hey oh)"
+    },
+    {
+      "t": 149.1,
+      "texte": "Oh, oh, oh, oh, oh, oh, oh"
+    },
+    {
+      "t": 151.8,
+      "texte": "S'il-te-plaît, réponds-moi (hey oh)"
+    },
+    {
+      "t": 154.2,
+      "texte": "Un geste suffira (hey oh)"
+    },
+    {
+      "t": 156.8,
+      "texte": "Est-ce que tu m'aperçois? (hey oh)"
+    },
+    {
+      "t": 158.7,
+      "texte": "Oh, oh, oh, oh, oh, oh, oh"
+    },
+    {
+      "t": 161.5,
+      "texte": "La seule chose que j'attends"
+    },
+    {
+      "t": 164,
+      "texte": "C'est juste que tu descendes"
+    },
+    {
+      "t": 166.8,
+      "texte": "Trop longtemps que j'attends"
+    },
+    {
+      "t": 169,
+      "texte": "Je commence à perdre patience"
+    },
+    {
+      "t": 171.6,
+      "texte": "J'ai appris que tu aimais ça"
+    },
+    {
+      "t": 174.3,
+      "texte": "Faire languir tous les mecs comme moi"
+    },
+    {
+      "t": 176.7,
+      "texte": "Et celui qui s'acharnera"
+    },
+    {
+      "t": 179.1,
+      "texte": "Ce sera lui que tu choisiras"
+    },
+    {
+      "t": 187.1,
+      "texte": "Touche-moi je suis là (hey oh)"
+    },
+    {
+      "t": 189.3,
+      "texte": "Oh, oh, oh, oh, oh, oh, oh"
+    },
+    {
+      "t": 192.2,
+      "texte": "S'il-te-plaît, réponds-moi (hey oh)"
+    },
+    {
+      "t": 194.8,
+      "texte": "Un geste suffira (hey oh)"
+    },
+    {
+      "t": 197.2,
+      "texte": "Est-ce que tu m'aperçois? (hey oh)"
+    },
+    {
+      "t": 199.3,
+      "texte": "Oh, oh, oh, oh, oh, oh, oh"
+    },
+    {
+      "t": 201.8,
+      "texte": "Oh, oh, oh, oh, oh"
+    },
+    {
+      "t": 205.2,
+      "texte": "Oh, oh, oh, oh, oh"
+    },
+    {
+      "t": 207.3,
+      "texte": "Oh, oh, oh, oh"
+    }
+  ]
+}

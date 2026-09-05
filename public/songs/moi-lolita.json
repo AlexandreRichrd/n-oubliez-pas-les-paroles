@@ -1,0 +1,360 @@
+{
+  "id": "moi-lolita",
+  "titre": "Moi... Lolita",
+  "artiste": "Alizée",
+  "annee": 2000,
+  "theme": "Prénoms",
+  "audio": "/audio/moi-lolita.mp3",
+  "lignes": [
+    {
+      "t": 0,
+      "texte": "",
+      "instrumental": true
+    },
+    {
+      "t": 17.5,
+      "texte": "Moi je m'appelle Lolita"
+    },
+    {
+      "t": 21.3,
+      "texte": "Lo ou bien Lola"
+    },
+    {
+      "t": 23.8,
+      "texte": "Du pareil au même"
+    },
+    {
+      "t": 26.5,
+      "texte": "Moi je m'appelle Lolita"
+    },
+    {
+      "t": 30.5,
+      "texte": "Quand je rêve aux loups"
+    },
+    {
+      "t": 32.7,
+      "texte": "C'est Lola qui saigne"
+    },
+    {
+      "t": 34.5,
+      "texte": "Quand fourche ma langue j'ai là"
+    },
+    {
+      "t": 39.8,
+      "texte": "un fou rire"
+    },
+    {
+      "t": 40.8,
+      "texte": "Aussi fou qu'un phénomène"
+    },
+    {
+      "t": 44.2,
+      "texte": "Je m'appelle Lolita"
+    },
+    {
+      "t": 48.4,
+      "texte": "Lo de vie, lo aux amours diluviennes"
+    },
+    {
+      "t": 54.7,
+      "texte": "C'est pas ma faute"
+    },
+    {
+      "t": 57,
+      "texte": "Et quand je donne ma langue au chat"
+    },
+    {
+      "t": 59.2,
+      "texte": "Je vois les autres"
+    },
+    {
+      "t": 61.2,
+      "texte": "Tout prêts à se jeter sur moi"
+    },
+    {
+      "t": 63.5,
+      "texte": "C'est pas ma faute à moi"
+    },
+    {
+      "t": 65.5,
+      "texte": "Si j'entends tout autour de moi"
+    },
+    {
+      "t": 67.5,
+      "texte": "Hello, helli, t'es A"
+    },
+    {
+      "t": 70.3,
+      "texte": "Moi Lolita"
+    },
+    {
+      "t": 73.2,
+      "texte": "Moi je m'appelle Lolita"
+    },
+    {
+      "t": 77.3,
+      "texte": "Collégienne aux bas"
+    },
+    {
+      "t": 79.3,
+      "texte": "Bleus de méthylène"
+    },
+    {
+      "t": 82.1,
+      "texte": "Moi je m'appelle Lolita"
+    },
+    {
+      "t": 86.3,
+      "texte": "Coléreuse et pas"
+    },
+    {
+      "t": 88,
+      "texte": "Mi- coton , mi-laine"
+    },
+    {
+      "t": 91,
+      "texte": "Motus et bouche qui n'dit pas"
+    },
+    {
+      "t": 95.1,
+      "texte": "A maman que je"
+    },
+    {
+      "t": 97.3,
+      "texte": "Suis un phénomène"
+    },
+    {
+      "t": 99.8,
+      "texte": "Je m'appelle Lolita"
+    },
+    {
+      "t": 104.1,
+      "texte": "Lo de vie, lo aux amours diluviennes"
+    },
+    {
+      "t": 110.3,
+      "texte": "C'est pas ma faute"
+    },
+    {
+      "t": 112.5,
+      "texte": "Et quand je donne ma langue au chat"
+    },
+    {
+      "t": 114.7,
+      "texte": "Je vois les autres"
+    },
+    {
+      "t": 116.7,
+      "texte": "Tout prêts à se jeter sur moi"
+    },
+    {
+      "t": 119,
+      "texte": "C'est pas ma faute à moi"
+    },
+    {
+      "t": 121.3,
+      "texte": "Si j'entends tout autour de moi",
+      "trou": true
+    },
+    {
+      "t": 123.4,
+      "texte": "Hello, helli, t'es A"
+    },
+    {
+      "t": 126,
+      "texte": "Moi Lolita"
+    },
+    {
+      "t": 127.5,
+      "texte": "C'est pas ma faute"
+    },
+    {
+      "t": 130.1,
+      "texte": "Et quand je donne ma langue au chat"
+    },
+    {
+      "t": 132.5,
+      "texte": "Je vois les autres"
+    },
+    {
+      "t": 134.2,
+      "texte": "Tout prêts à se jeter sur moi"
+    },
+    {
+      "t": 136.9,
+      "texte": "C'est pas ma faute à moi"
+    },
+    {
+      "t": 139.2,
+      "texte": "Si j'entends tout autour de moi"
+    },
+    {
+      "t": 141.1,
+      "texte": "Hello, helli, t'es A"
+    },
+    {
+      "t": 143.7,
+      "texte": "Moi Lolita"
+    },
+    {
+      "t": 146.6,
+      "texte": "Lo, li, ta"
+    },
+    {
+      "t": 150.3,
+      "texte": "Lo, li, ta"
+    },
+    {
+      "t": 155.2,
+      "texte": "Lo, li, ta"
+    },
+    {
+      "t": 159.8,
+      "texte": "Lo, li, ta"
+    },
+    {
+      "t": 164.6,
+      "texte": "Lo, li, ta"
+    },
+    {
+      "t": 168.8,
+      "texte": "Lo, li, ta"
+    },
+    {
+      "t": 173,
+      "texte": "Lo, li, ta"
+    },
+    {
+      "t": 177.8,
+      "texte": "Lo, li, ta"
+    },
+    {
+      "t": 183.5,
+      "texte": "C'est pas ma faute"
+    },
+    {
+      "t": 185.5,
+      "texte": "Et quand je donne ma langue au chat"
+    },
+    {
+      "t": 188,
+      "texte": "Je vois les autres"
+    },
+    {
+      "t": 190.1,
+      "texte": "Tout prêts à se jeter sur moi"
+    },
+    {
+      "t": 192.6,
+      "texte": "C'est pas ma faute à moi"
+    },
+    {
+      "t": 194.7,
+      "texte": "Si j'entends tout autour de moi"
+    },
+    {
+      "t": 197.1,
+      "texte": "Hello, helli, t'es A"
+    },
+    {
+      "t": 199.3,
+      "texte": "Moi Lolita"
+    },
+    {
+      "t": 200.9,
+      "texte": "C'est pas ma faute"
+    },
+    {
+      "t": 203.3,
+      "texte": "Et quand je donne ma langue au chat"
+    },
+    {
+      "t": 205.8,
+      "texte": "Je vois les autres"
+    },
+    {
+      "t": 207.7,
+      "texte": "Tout prêts à se jeter sur moi"
+    },
+    {
+      "t": 210.2,
+      "texte": "C'est pas ma faute à moi"
+    },
+    {
+      "t": 212.5,
+      "texte": "Si j'entends tout autour de moi"
+    },
+    {
+      "t": 214.7,
+      "texte": "Hello, helli, t'es A"
+    },
+    {
+      "t": 216.9,
+      "texte": "Moi Lolita"
+    },
+    {
+      "t": 218.9,
+      "texte": "C'est pas ma faute"
+    },
+    {
+      "t": 221.1,
+      "texte": "Et quand je donne ma langue au chat"
+    },
+    {
+      "t": 223.7,
+      "texte": "Je vois les autres"
+    },
+    {
+      "t": 225.8,
+      "texte": "Tout prêts à se jeter sur moi"
+    },
+    {
+      "t": 228,
+      "texte": "C'est pas ma faute à moi"
+    },
+    {
+      "t": 230.2,
+      "texte": "Si j'entends tout autour de moi"
+    },
+    {
+      "t": 232.5,
+      "texte": "Hello, helli, t'es A"
+    },
+    {
+      "t": 234.6,
+      "texte": "Moi Lolita"
+    },
+    {
+      "t": 236.8,
+      "texte": "C'est pas ma faute"
+    },
+    {
+      "t": 238.9,
+      "texte": "Et quand je donne ma langue au chat"
+    },
+    {
+      "t": 241.5,
+      "texte": "Je vois les autres"
+    },
+    {
+      "t": 243.3,
+      "texte": "Tout prêts à se jeter sur moi"
+    },
+    {
+      "t": 245.7,
+      "texte": "C'est pas ma faute à moi"
+    },
+    {
+      "t": 248,
+      "texte": "Si j'entends tout autour de moi"
+    },
+    {
+      "t": 250.5,
+      "texte": "Hello, helli, t'es A"
+    },
+    {
+      "t": 252.8,
+      "texte": "Moi Lolita"
+    }
+  ]
+}
